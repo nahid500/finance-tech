@@ -5,15 +5,17 @@ export default function Navbar() {
                 <div>
                     <h1 className="text-2xl font-bold">
                         <span>Jakaria </span>
-                        <span className="text-red-500">Inc</span>
+                        <span className="text-red-600">Inc</span>
                     </h1>
                 </div>
 
                 <nav>
                     <ul className="flex gap-6 items-center text-white font-medium">
                         {/* <li>Home</li> */}
-                        <li>About</li>
-                        <li>Services</li>
+                        <li>
+                            <a href = "#about">About</a></li>
+                        <li>
+                            <a href = "#services">Services</a></li>
                         <li>Learning</li>
                         <li>Blogs</li>
                         <li>Pricing</li>

@@ -27,15 +27,19 @@ const services = [
 
 export default function Services() {
     return(
-        <div>
+        <div id="services" className="">
             {services.map((service) => (
-                <div key={service.id} className="px-8">
+                <div key={service.id} className=" px-8 bg-slate-100 justify-center">
 
                     <div className="grid grid-cols-1 md:grid-cols-2">
-                        <Image src={service.image} alt="service" width={500}/>
+                        <Image src={service.image} alt="service" width={450} className="flex mx-auto" />
 
-                        <div>
-                            <h2>{service.title}</h2>
+                        <div className=" flex flex-col items-center pt-12 pl-6">
+                            <h2 className="text-cyan-800 font-bold text-2xl pt-12">{service.id}. {service.title}</h2>
+                            <p className="text-cyan-600 text-xl pt-8 px-6">{service.desc}</p>
+                        
+                            <button className="mt-12 bg-blue-400 text-white hover:bg-blue-300 p-2 px-4 rounded-full">Contact Us</button>
+
                         </div>
 
                     </div>
