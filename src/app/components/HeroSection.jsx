@@ -3,7 +3,6 @@
 export default function HeroSection() {
   return (
     <section className="relative h-screen w-full flex items-center justify-center text-white overflow-hidden">
-      {/* Background Video */}
       <video
         autoPlay
         loop
