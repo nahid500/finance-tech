@@ -1,25 +1,19 @@
 "use client";
 
-import {
-  FileChartColumnIncreasing,
-  LayoutDashboard,
-  Notebook,
-} from "lucide-react";
+import { FileChartColumnIncreasing, FilePlus2, Notebook } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
 
 const sidebarItem = [
-  {
-    title: "Dashboard",
-    path: "/dashboard",
-    icon: LayoutDashboard,
-  },
-
   {
     title: "Services",
     path: "/dashboard/service",
     icon: FileChartColumnIncreasing,
+  },
+  {
+    title: "Add Service",
+    path: "/dashboard/add-service",
+    icon: FilePlus2,
   },
   {
     title: "Blog",
@@ -30,8 +24,6 @@ const sidebarItem = [
 
 const Sidebar = () => {
   const pathname = usePathname();
-
-  console.log(pathname);
 
   return (
     <div className="bg-gray-50 h-screen border-r border-gray-400">
