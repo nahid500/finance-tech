@@ -5,6 +5,7 @@ import Services from "@/components/Services";
 import WidgetThree from "@/components/widgets/WidgetThree";
 import WhyUs from "@/components/WhyUs";
 import WidgetTwo from "@/components/widgets/WidgetTwo";
+import NewsWidget from "@/components/widgets/NewsWidget";
 
 export default function Home() {
   return (
@@ -22,6 +23,8 @@ export default function Home() {
       <WhyUs/>
 
       <WidgetThree/>
+
+      <NewsWidget/>
     </>
   );
 }
