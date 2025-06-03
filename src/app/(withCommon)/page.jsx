@@ -4,7 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import Services from "@/components/Services";
 import WidgetThree from "@/components/widgets/WidgetThree";
 import WhyUs from "@/components/WhyUs";
-import WidgetOne from "@/components/widgets/WidgetOne";
+import WidgetTwo from "@/components/widgets/widgetTwo";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
 
       <About />
 
-      <WidgetOne/>
+      <WidgetTwo/>
 
       <CustomerWidget />
 
