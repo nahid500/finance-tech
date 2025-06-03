@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import aboutimg from "@/assets/images/speech1.png";
+import aboutimg2 from "@/assets/images/speech2.png";
 
 const fadeInLeft = {
   hidden: { opacity: 0, x: -100 },
@@ -14,11 +14,11 @@ const fadeInRight = {
   visible: { opacity: 1, x: 0 },
 };
 
-export default function About() {
+export default function Speech() {
   return (
     <div
       id="about"
-      className="bg-cyan-400 grid grid-cols-1 md:grid-cols-2 py-8 px-10 md:px-28 items-center"
+      className="bg-cyan-400 grid grid-cols-1 md:grid-cols-2 py-4 px-10 md:px-24 items-center"
     >
       <motion.div
         className="flex justify-center"
@@ -28,7 +28,7 @@ export default function About() {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
       >
-        <Image src={aboutimg} alt="image" />
+        <Image src={aboutimg2} alt="image" />
       </motion.div>
 
       <motion.div
@@ -39,15 +39,11 @@ export default function About() {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
-        <h2 className="text-center text-3xl font-bold mb-4">
+        {/* <h2 className="text-center text-3xl font-bold mb-4">
           Welcome to Jakaria <span className="text-red-600">Inc.</span>
-        </h2>
+        </h2> */}
         <p className="pt-4 text-xl">
-          Where innovation drives success. We help entrepreneurs and business
-          owners raise capital through ICOs, while anyone can launch memecoins
-          to generate short-term profits on decentralized exchanges. With over 5
-          years of fintech expertise, we provide the strategies to turn your
-          crypto goals into reality. Let’s create something impactful together!
+            Unlock the full potential of your business by raising funds through ICOs, empowering your company’s growth and expansion. Additionally, generate short-term profits by launching a memecoin on decentralized exchanges (DEX). The entire process can be completed in just 7 days, with no upfront fees. At Jakaria Inc., we guarantee top-tier service to ensure your success in the world of crypto. Consult with us today for the best assessment and tailored strategies to drive your business forward.
         </p>
       </motion.div>
     </div>

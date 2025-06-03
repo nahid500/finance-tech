@@ -6,6 +6,7 @@ import WidgetThree from "@/components/widgets/WidgetThree";
 import WhyUs from "@/components/WhyUs";
 import WidgetTwo from "@/components/widgets/WidgetTwo";
 import NewsWidget from "@/components/widgets/NewsWidget";
+import Speech from "@/components/Speech";
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
       <About />
       <Services />
 
-      <About />
+      <Speech/>
 
       <WidgetTwo/>
 
