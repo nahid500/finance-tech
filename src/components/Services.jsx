@@ -5,6 +5,7 @@ import s1 from "@/assets/images/s1.png";
 import s2 from "@/assets/images/s2.png";
 import s3 from "@/assets/images/s3.png";
 import { motion } from "framer-motion";
+import WidgetOne from "./widgets/WidgetOne";
 
 const services = [
   {
@@ -12,18 +13,21 @@ const services = [
     title: "ICO EXPERT",
     desc: "Easily raise funds within 7 days and ensure long-term growth with expert ICO services. From token creation to attracting investors, every step is carefully managed to ensure your project's success.",
     image: s1,
+    widget: null
   },
   {
     id: 2,
     title: "Meme Token Launch",
     desc: "Launch your meme token and get listed in popular decentralized exchanges, with listing approval within 24 hours. Our services guarantee a pump and rapid market traction.",
     image: s2,
+    widget: <WidgetOne/>
   },
   {
     id: 3,
     title: "Community Token Launch",
     desc: "Build a stronger community by developing the perfect ecosystem for your coin. We help you create and launch tokens that drive long-term organic growth, ensuring sustainability and success.",
     image: s3,
+    widget: null
   },
 ];
 
@@ -72,8 +76,13 @@ export default function Services() {
                 <p className="text-cyan-600 text-xl pt-6 px-2">
                   {service.desc}
                 </p>
+
+                
               </div>
+
             </div>
+                {service.widget && <div>{service.widget}</div>}
+
           </motion.div>
         );
       })}
