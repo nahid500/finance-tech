@@ -5,8 +5,8 @@ import React from "react";
 const CommonLayout = ({ children }) => {
   return (
     <div>
-      <SecondNav/>
       <Navbar />
+      <SecondNav/>
       {children}
     </div>
   );

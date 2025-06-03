@@ -18,7 +18,7 @@ export default function Speech() {
   return (
     <div
       id="about"
-      className="bg-cyan-400 grid grid-cols-1 md:grid-cols-2 py-4 px-10 md:px-24 items-center"
+      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white grid grid-cols-1 md:grid-cols-2 py-4 px-10 md:px-24 items-center"
     >
       <motion.div
         className="flex justify-center"

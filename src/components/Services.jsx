@@ -48,7 +48,7 @@ export default function Services() {
         return (
           <motion.div
             key={service.id}
-            className="px-8 bg-slate-100 py-8"
+            className="px-10 md:px-32 bg-gradient-to-br from-purple-50 via-white to-blue-50 py-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
@@ -65,15 +65,15 @@ export default function Services() {
                   src={service.image}
                   alt={service.title}
                   width={450}
-                  priority={index === 0} // optional: prioritize first image
+                  priority={index === 0} 
                 />
               </div>
 
-              <div className="flex flex-col items-center justify-center text-center p-6">
-                <h2 className="text-cyan-800 font-bold text-2xl">
+              <div className="flex flex-col items-center justify-center text-center px-6">
+                <h2 className="text-purple-600 font-bold text-2xl">
                   {service.id}. {service.title}
                 </h2>
-                <p className="text-cyan-600 text-xl pt-6 px-2">
+                <p className="text-blue-600 text-xl pt-6 px-2">
                   {service.desc}
                 </p>
 

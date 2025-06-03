@@ -20,7 +20,7 @@ export default function WhyUs() {
   return (
     <section
       id="why-us"
-      className="bg-slate-100 grid grid-cols-1 md:grid-cols-2 py-12 px-10 md:px-32 items-center"
+      className="bg-gradient-to-br from-purple-50 via-white to-blue-50 grid grid-cols-1 md:grid-cols-2 py-12 px-10 md:px-32 items-center"
     >
       <motion.div
         className="px-6"
@@ -30,10 +30,10 @@ export default function WhyUs() {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className=" text-3xl font-bold mb-4 text-cyan-600">
-          Why Choose <span className="text-red-600">Jakaria Inc.</span>?
+        <h2 className=" text-3xl font-bold mb-4 text-purple-600">
+          Why Choose Us?
         </h2>
-        <ul className="list-disc list-inside text-lg space-y-3 pt-2">
+        <ul className="list-disc list-inside text-lg space-y-3 pt-2 text-blue-600">
 
           <li>No upfront fee - Pay only for results.</li>
           <li>Dedicated blockchain developers for each project. </li>
