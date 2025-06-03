@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import s1 from "@/app/images/s1.png";
-import s2 from "@/app/images/s2.png";
-import s3 from "@/app/images/s3.png";
+import s1 from "@/assets/images/s1.png";
+import s2 from "@/assets/images/s2.png";
+import s3 from "@/assets/images/s3.png";
 import { motion } from "framer-motion";
 
 const services = [
@@ -69,7 +69,9 @@ export default function Services() {
                 <h2 className="text-cyan-800 font-bold text-2xl">
                   {service.id}. {service.title}
                 </h2>
-                <p className="text-cyan-600 text-xl pt-6 px-2">{service.desc}</p>
+                <p className="text-cyan-600 text-xl pt-6 px-2">
+                  {service.desc}
+                </p>
               </div>
             </div>
           </motion.div>

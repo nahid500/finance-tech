@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import aboutimg from "@/app/images/aboutImg.png";
+import aboutimg from "@/assets/images/aboutImg.png";
 
 const fadeInLeft = {
   hidden: { opacity: 0, x: -100 },
@@ -45,8 +45,8 @@ export default function About() {
         <p className="pt-4 text-xl">
           Where innovation drives success. We help entrepreneurs and business
           owners raise capital through ICOs, while anyone can launch memecoins
-          to generate short-term profits on decentralized exchanges. With over
-          5 years of fintech expertise, we provide the strategies to turn your
+          to generate short-term profits on decentralized exchanges. With over 5
+          years of fintech expertise, we provide the strategies to turn your
           crypto goals into reality. Let’s create something impactful together!
         </p>
       </motion.div>
