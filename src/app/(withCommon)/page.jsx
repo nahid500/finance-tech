@@ -4,7 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import Services from "@/components/Services";
 import WidgetThree from "@/components/widgets/WidgetThree";
 import WhyUs from "@/components/WhyUs";
-import WidgetTwo from "@/components/widgets/widgetTwo";
+import WidgetTwo from "@/components/widgets/WidgetTwo";
 
 export default function Home() {
   return (
