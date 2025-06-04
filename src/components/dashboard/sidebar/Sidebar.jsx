@@ -1,6 +1,11 @@
 "use client";
 
-import { FileChartColumnIncreasing, FilePlus2, Notebook } from "lucide-react";
+import {
+  FileChartColumnIncreasing,
+  FilePlus2,
+  Newspaper,
+  Notebook,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -19,6 +24,16 @@ const sidebarItem = [
     title: "Blog",
     path: "/dashboard/blog",
     icon: Notebook,
+  },
+  {
+    title: "Add Blog",
+    path: "/dashboard/add-blog",
+    icon: FilePlus2,
+  },
+  {
+    title: "Newsletter",
+    path: "/dashboard/newsletter",
+    icon: Newspaper,
   },
 ];
 
