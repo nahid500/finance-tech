@@ -1,9 +1,12 @@
 "use client";
 
 import convertImgToBase64 from "@/utils/convertToBase64";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import serviceImg from "@/assets/images/s1.png";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { toast } from "sonner";
 
 const serviceData = [
   {
@@ -26,33 +29,85 @@ const serviceData = [
 
 const EditServicePage = () => {
   const { edit } = useParams();
+  const [blog, setBlog] = useState(null);
+  const router = useRouter();
 
-  const service = serviceData.find((service) => service._id == edit);
-
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {
-      title: service?.title,
-      content: service?.content,
-      topic: service?.topic,
-      img: service.img, // Initialize img as null for file input
+      title: blog?.title,
+      content: blog?.content,
+      topic: blog?.topic,
+      img: null, // Initialize img as null for file input
     },
   });
 
+  useEffect(() => {
+    const getBlogData = async () => {
+      try {
+        const response = await axios.get(
+          `https://jakaria-finance-backend.vercel.app/api/v1/blogs/${edit}`
+        );
+
+        if (response.data?.success) {
+          const fetchedBlog = response.data.data;
+          setBlog(fetchedBlog);
+
+          reset({
+            title: fetchedBlog.title,
+            content: fetchedBlog.content,
+            topic: fetchedBlog.topic,
+            img: null,
+          });
+        } else {
+          console.error("Failed to fetch blog:", response.data.message);
+        }
+      } catch (error) {
+        console.error("Error fetching blog:", error.message);
+      }
+    };
+
+    getBlogData();
+  }, [edit, reset]);
+
+  console.log(blog);
+
   const onSubmit = async (data) => {
-    let updatedImg = service?.img;
+    const toastId = toast.loading("Updating blog...");
+    let updatedImg = blog?.img;
 
     if (data.img && data.img.length > 0) {
       updatedImg = await convertImgToBase64(data.img[0]);
     }
 
-    const serviceData = {
+    const blogData = {
       title: data.title,
       content: data.content,
       topic: data.topic,
       img: updatedImg,
     };
 
-    console.log(serviceData);
+    try {
+      const res = await axios.patch(
+        `https://jakaria-finance-backend.vercel.app/api/v1/blogs/${edit}`,
+        blogData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (res.data.success) {
+        toast.success(res.data.message, { id: toastId });
+        reset();
+        router.push("/dashboard/blog");
+      }
+    } catch (err) {
+      console.error("Error updating blog:", err);
+      toast.error(err.response?.data?.message || "Failed to update blog", {
+        id: toastId,
+      });
+    }
   };
 
   return (

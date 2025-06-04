@@ -1,13 +1,19 @@
 "use client";
 
 import convertImgToBase64 from "@/utils/convertToBase64";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 const AddBlogPage = () => {
   const { register, handleSubmit } = useForm();
+  const router = useRouter();
 
   const onSubmit = async (data) => {
+    const toastId = toast.loading("Adding blog...");
+
     const base64Img = await convertImgToBase64(data.img[0]);
     const serviceData = {
       title: data.title,
@@ -16,7 +22,25 @@ const AddBlogPage = () => {
       img: base64Img,
     };
 
-    console.log(serviceData);
+    try {
+      const res = await axios.post(
+        "https://jakaria-finance-backend.vercel.app/api/v1/blogs",
+        serviceData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (res.data.success) {
+        toast.success(res.data.message, { id: toastId });
+        router.push("/dashboard/blog");
+      }
+    } catch (err) {
+      console.error("Error adding blog:", err);
+      toast.error(err.response.data.message, { id: toastId });
+    }
   };
 
   return (

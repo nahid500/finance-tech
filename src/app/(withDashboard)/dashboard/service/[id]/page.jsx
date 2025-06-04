@@ -1,46 +1,88 @@
 "use client";
 
 import convertImgToBase64 from "@/utils/convertToBase64";
-import { useParams } from "next/navigation";
+import axios from "axios";
+import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-
-const serviceData = [
-  {
-    _id: 1,
-    title: "ICO Expert",
-    description:
-      "Easily raise funds within 7 days and ensure long-term growth with expert ICO services. From token creation to attracting investors, every step is carefully managed to ensure your project's success.",
-  },
-  {
-    _id: 2,
-    title: "Blockchain Development",
-    description:
-      "Custom blockchain solutions tailored to your business needs. From smart contract development to full blockchain integration, we handle everything.",
-  },
-];
+import { toast } from "sonner";
 
 const EditServicePage = () => {
+  const [service, setService] = useState(null);
   const { id } = useParams();
 
-  const service = serviceData.find((service) => service._id == id);
-
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     defaultValues: {
-      name: service?.title,
+      title: service?.title,
       description: service?.description,
-      img: null, // Initialize img as null, will be updated on file selection
+      img: null,
     },
   });
 
-  const onSubmit = async (data) => {
-    const base64Img = await convertImgToBase64(data.img[0]);
-    const serviceData = {
-      name: data.name,
-      description: data.description,
-      img: base64Img,
+  useEffect(() => {
+    const getServiceData = async () => {
+      try {
+        const response = await axios.get(
+          `https://jakaria-finance-backend.vercel.app/api/v1/services/${id}`
+        );
+
+        if (response.data?.success) {
+          const fetchedService = response.data.data;
+          setService(fetchedService);
+
+          reset({
+            title: fetchedService.title,
+            description: fetchedService.description,
+            img: null, // Keep this null for file input
+          });
+        } else {
+          console.error("Failed to fetch service:", response.data.message);
+        }
+      } catch (error) {
+        console.error("Error fetching service:", error.message);
+      }
     };
 
-    console.log(serviceData);
+    getServiceData();
+  }, [id, reset]);
+
+  const router = useRouter();
+
+  const onSubmit = async (data) => {
+    const toastId = toast.loading("Updating service...");
+    let updatedImg = service?.img;
+
+    if (data.img && data.img.length > 0) {
+      updatedImg = await convertImgToBase64(data.img[0]);
+    }
+    const serviceData = {
+      title: data.title,
+      description: data.description,
+      img: updatedImg,
+    };
+
+    try {
+      const res = await axios.patch(
+        `https://jakaria-finance-backend.vercel.app/api/v1/services/${id}`,
+        serviceData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (res.data.success) {
+        toast.success("Service updated successfully", { id: toastId });
+        reset();
+        router.push("/dashboard/service");
+      } else {
+        toast.error("Failed to update service", { id: toastId });
+      }
+    } catch (err) {
+      console.error("❌ Submission error:", err.response?.data || err.message);
+      toast.error("Failed to update service", { id: toastId });
+    }
   };
 
   return (
@@ -54,7 +96,7 @@ const EditServicePage = () => {
             </label>
             <input
               type="text"
-              {...register("name")}
+              {...register("title")}
               placeholder="Enter service name"
               className="w-full py-3"
             />
@@ -98,7 +140,7 @@ const EditServicePage = () => {
           type="submit"
           className="btn-primary px-6 py-2 text-white font-semibold rounded-md bg-blue-600 hover:bg-blue-700 transition"
         >
-          Add Service
+          Update Service
         </button>
       </form>
     </div>

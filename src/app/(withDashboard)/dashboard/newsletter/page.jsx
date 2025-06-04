@@ -1,4 +1,8 @@
-import React from "react";
+"use client";
+
+import { formatDateToYMD } from "@/utils/formateData";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const newsletterData = [
   {
@@ -14,6 +18,29 @@ const newsletterData = [
 ];
 
 const NewsletterPage = () => {
+  const [newsletter, setNewsletter] = useState([]);
+
+  useEffect(() => {
+    const getNewsletterData = async () => {
+      try {
+        const response = await axios.get(
+          "https://jakaria-finance-backend.vercel.app/api/v1/newsletter"
+        );
+
+        if (response.data?.success) {
+          setNewsletter(response.data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching newsletter:", error.message);
+        console.log(error);
+      }
+    };
+
+    getNewsletterData();
+  }, []);
+
+  console.log(newsletter);
+
   return (
     <div>
       <h1 className="text-2xl md:text-4xl font-medium">
@@ -33,7 +60,7 @@ const NewsletterPage = () => {
               </tr>
             </thead>
             <tbody>
-              {newsletterData.map((subscriber) => (
+              {newsletter.map((subscriber) => (
                 <tr
                   key={subscriber._id}
                   className="border-t border-gray-200 hover:bg-gray-50 transition duration-200"
@@ -42,7 +69,7 @@ const NewsletterPage = () => {
                     {subscriber.email}
                   </td>
                   <td className="px-6 py-2 text-sm text-gray-700">
-                    {subscriber.date}
+                    {formatDateToYMD(subscriber.createdAt)}
                   </td>
                 </tr>
               ))}

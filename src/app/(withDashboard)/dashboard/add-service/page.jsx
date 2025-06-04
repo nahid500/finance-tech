@@ -1,21 +1,44 @@
 "use client";
 
 import convertImgToBase64 from "@/utils/convertToBase64";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 const AddServicePage = () => {
   const { register, handleSubmit } = useForm();
+  const router = useRouter();
 
   const onSubmit = async (data) => {
+    const toastId = toast.loading("Adding service...");
     const base64Img = await convertImgToBase64(data.img[0]);
     const serviceData = {
-      name: data.name,
+      title: data.title,
       description: data.description,
       img: base64Img,
     };
 
-    console.log(serviceData);
+    try {
+      const res = await axios.post(
+        "https://jakaria-finance-backend.vercel.app/api/v1/services",
+
+        serviceData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (res.data.success) {
+        router.push("/dashboard/service");
+        toast.success(res.data.message, { id: toastId });
+      }
+    } catch (err) {
+      console.error("❌ Submission error:", err.response?.data || err.message);
+    }
   };
 
   return (
@@ -25,11 +48,11 @@ const AddServicePage = () => {
         <div className="flex w-full gap-2">
           <div className="mb-4 w-full">
             <label htmlFor="name" className="block text-sm font-medium mb-2">
-              Service Name
+              Service Title
             </label>
             <input
               type="text"
-              {...register("name")}
+              {...register("title")}
               placeholder="Enter service name"
               className="w-full py-3"
             />

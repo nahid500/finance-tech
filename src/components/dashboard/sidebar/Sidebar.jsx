@@ -43,10 +43,12 @@ const Sidebar = () => {
   return (
     <div className="bg-gray-50 h-screen border-r border-gray-400">
       <div className="text-center py-4 border-b border-gray-400 ">
-        <h1 className="text-xl md:text-3xl font-bold ">
-          <span>Jakaria </span>
-          <span className="text-red-600">Inc</span>
-        </h1>
+        <Link href={"/"} className="cursor-pointer">
+          <h1 className="text-xl md:text-3xl font-bold ">
+            <span>Jakaria </span>
+            <span className="text-red-600">Inc</span>
+          </h1>
+        </Link>
       </div>
 
       {/* Sidebar item */}
