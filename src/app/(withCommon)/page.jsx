@@ -7,7 +7,6 @@ import WhyUs from "@/components/WhyUs";
 import WidgetTwo from "@/components/widgets/WidgetTwo";
 import NewsWidget from "@/components/widgets/NewsWidget";
 import Speech from "@/components/Speech";
-import Learning from "@/components/Learning";
 
 export default function Home() {
   return (
@@ -28,7 +27,6 @@ export default function Home() {
 
       <NewsWidget/>
 
-      <Learning/>
     </>
   );
 }

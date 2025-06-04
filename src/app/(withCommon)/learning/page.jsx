@@ -96,7 +96,7 @@ const Learning = () => {
     : blogPosts.filter(post => post.category === selectedCategory);
 
   return (
-    <div id='learning' className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
+    <div id='learning' className="min-h-screen md:mt-16 bg-gradient-to-br from-purple-50 via-white to-blue-50">
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
        
