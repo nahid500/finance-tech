@@ -18,7 +18,7 @@ export default function About() {
   return (
     <div
       id="about"
-      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white grid grid-cols-1 md:grid-cols-2 py-8 px-10 md:px-28 items-center"
+      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white grid grid-cols-1 mt-20 md:mt-0 md:grid-cols-2 py-8 px-10 md:px-28 items-center"
     >
       <motion.div
         className="flex justify-center"
