@@ -60,7 +60,7 @@ export default function Services() {
                 index % 2 !== 0 ? "md:flex-row-reverse" : ""
               } items-center gap-6`}
             >
-              <div className="flex justify-center">
+              <div className="flex justify-center w-3/5">
                 <Image
                   src={service.image}
                   alt={service.title}

@@ -54,7 +54,7 @@ export default function WhyUs() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8 }}
             >
-              <Image src={why} alt="image" />
+              <Image src={why} alt="image" className="w-3/4"/>
             </motion.div>
     </section>
   );

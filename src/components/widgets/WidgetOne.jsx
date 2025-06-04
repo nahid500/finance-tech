@@ -12,61 +12,36 @@ export default function WidgetOne() {
     script.async = true;
     script.type = "text/javascript";
 
-    // Widget configuration as JSON string
     script.innerHTML = JSON.stringify({
       symbols: [
         ["Apple", "AAPL|1D"],
         ["Google", "GOOGL|1D"],
         ["Microsoft", "MSFT|1D"],
       ],
-      chartOnly: false,
-      width: "100%",
-      height: "100%",
-      locale: "en",
+      autosize: true,
       colorTheme: "light",
-      autosize: false,
-      showVolume: false,
-      showMA: false,
-      hideDateRanges: false,
-      hideMarketStatus: false,
-      hideSymbolLogo: false,
-      scalePosition: "right",
-      scaleMode: "Normal",
-      fontFamily:
-        "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-      fontSize: "10",
-      noTimeScale: false,
-      valuesTracking: "1",
-      changeMode: "price-and-percent",
-      chartType: "area",
-      maLineColor: "#2962FF",
-      maLineWidth: 1,
-      maLength: 9,
-      headerFontSize: "medium",
-      lineWidth: 2,
-      lineType: 0,
-      dateRanges: ["1d|1", "1m|30", "3m|60", "12m|1D", "60m|1W", "all|1M"],
+      locale: "en",
     });
 
     if (containerRef.current) {
-      containerRef.current.innerHTML = ""; // clear old widget
+      containerRef.current.innerHTML = "";
       containerRef.current.appendChild(script);
     }
   }, []);
 
   return (
-    <div className="flex justify-center items-center w-full h-[450px] py-8">
+    <div className="w-full px-4 py-8 flex justify-center items-center">
       <div
-        className="tradingview-widget-container w-full max-w-4xl h-full"
+        className="tradingview-widget-container w-full max-w-5xl min-h-[450px]"
         ref={containerRef}
       >
-        <div className="tradingview-widget-container__widget"></div>
-        <div className="tradingview-widget-copyright text-center mt-2">
+        <div className="tradingview-widget-container__widget" />
+        <div className="text-center text-sm mt-2 text-gray-500">
           <a
             href="https://www.tradingview.com/"
             target="_blank"
-            rel="noopener nofollow"
-            className="text-blue-600"
+            rel="noopener noreferrer"
+            className="text-blue-600 underline"
           >
             Track all markets on TradingView
           </a>

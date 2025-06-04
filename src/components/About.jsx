@@ -28,7 +28,7 @@ export default function About() {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
       >
-        <Image src={aboutimg} alt="image" />
+        <Image src={aboutimg} alt="image" className="w-3/4"/>
       </motion.div>
 
       <motion.div
