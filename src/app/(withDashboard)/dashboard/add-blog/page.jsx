@@ -7,23 +7,24 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-const AddServicePage = () => {
+const AddBlogPage = () => {
   const { register, handleSubmit } = useForm();
   const router = useRouter();
 
   const onSubmit = async (data) => {
-    const toastId = toast.loading("Adding service...");
+    const toastId = toast.loading("Adding blog...");
+
     const base64Img = await convertImgToBase64(data.img[0]);
     const serviceData = {
       title: data.title,
-      description: data.description,
+      content: data.content,
+      topic: data.topic,
       img: base64Img,
     };
 
     try {
       const res = await axios.post(
-        "https://jakaria-finance-backend.vercel.app/api/v1/services",
-
+        "https://jakaria-finance-backend.vercel.app/api/v1/blogs",
         serviceData,
         {
           headers: {
@@ -33,37 +34,47 @@ const AddServicePage = () => {
       );
 
       if (res.data.success) {
-        router.push("/dashboard/service");
         toast.success(res.data.message, { id: toastId });
+        router.push("/dashboard/blog");
       }
     } catch (err) {
-      console.error("❌ Submission error:", err.response?.data || err.message);
+      console.error("Error adding blog:", err);
+      toast.error(err.response.data.message, { id: toastId });
     }
   };
 
   return (
     <div>
-      <h1 className="text-2xl md:text-4xl font-medium">Add Service</h1>
+      <h1 className="text-2xl md:text-4xl font-medium">Add Blogs</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="mt-5 w-full">
+        <div className="mb-4 w-full">
+          <label htmlFor="name" className="block text-sm font-medium mb-2">
+            Blog Title
+          </label>
+          <input
+            type="text"
+            {...register("title")}
+            placeholder="Enter blog title"
+            className="w-full py-3"
+          />
+        </div>
+
         <div className="flex w-full gap-2">
           <div className="mb-4 w-full">
             <label htmlFor="name" className="block text-sm font-medium mb-2">
-              Service Title
+              Blog Topic
             </label>
             <input
               type="text"
-              {...register("title")}
-              placeholder="Enter service name"
+              {...register("topic")}
+              placeholder="Enter blog Topic"
               className="w-full py-3"
             />
           </div>
 
           <div className="mb-4 w-full">
-            <label
-              htmlFor="serviceImage"
-              className="block text-sm font-medium mb-2"
-            >
-              Service Image
+            <label htmlFor="blogImg" className="block text-sm font-medium mb-2">
+              Blog Image
             </label>
             <input
               type="file"
@@ -78,16 +89,11 @@ const AddServicePage = () => {
         </div>
 
         <div className="mb-4">
-          <label
-            htmlFor="serviceDescription"
-            className="block text-sm font-medium mb-2"
-          >
-            Description
-          </label>
+          <label className="block text-sm font-medium mb-2">Blog Content</label>
           <textarea
             rows="4"
-            {...register("description")}
-            placeholder="Enter service description"
+            {...register("content")}
+            placeholder="Enter Blog Content"
             className="w-full"
           ></textarea>
         </div>
@@ -96,11 +102,11 @@ const AddServicePage = () => {
           type="submit"
           className="btn-primary px-6 py-2 text-white font-semibold rounded-md bg-blue-600 hover:bg-blue-700 transition"
         >
-          Add Service
+          Add Blog
         </button>
       </form>
     </div>
   );
 };
 
-export default AddServicePage;
+export default AddBlogPage;

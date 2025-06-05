@@ -1,12 +1,32 @@
 "use client";
-import React from "react";
-import { Mail, Linkedin, MessageCircle } from "lucide-react";
+import axios from "axios";
 import { motion } from "framer-motion";
+import { Linkedin, MessageCircle } from "lucide-react";
+import { toast } from "sonner";
 
 export const Footer = () => {
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
+    const toastId = toast.loading("Subscribing...");
     e.preventDefault();
-    alert("Subscribed successfully!");
+
+    console.log(e.target.email.value);
+
+    try {
+      const res = await axios.post(
+        "https://jakaria-finance-backend.vercel.app/api/v1/newsletter", // Replace with your API endpoint
+        {
+          email: e.target.email.value,
+        }
+      );
+
+      if (res.data.success) {
+        toast.success("Subscribed successfully!", { id: toastId });
+        e.target.reset(); // Reset the form after successful subscription
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error(err.response.data.message, { id: toastId });
+    }
   };
 
   return (
@@ -20,9 +40,15 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-lg font-semibold mb-4">Subscribe to our Newsletter</h3>
-            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3">
+            <h3 className="text-lg font-semibold mb-4">
+              Subscribe to our Newsletter
+            </h3>
+            <form
+              onSubmit={handleSubscribe}
+              className="flex flex-col sm:flex-row gap-3"
+            >
               <input
+                name="email"
                 type="email"
                 required
                 placeholder="abcd@gmail.com"
@@ -69,11 +95,13 @@ export const Footer = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">About</h3>
               <p className="text-sm text-gray-400">
-                Empowering businesses through data-driven strategies and insightful analytics.
+                Empowering businesses through data-driven strategies and
+                insightful analytics.
               </p>
             </div>
             <p className="text-xs text-gray-500 mt-6">
-              &copy; {new Date().getFullYear()} Jakaria Inc. All rights reserved.
+              &copy; {new Date().getFullYear()} Jakaria Inc. All rights
+              reserved.
             </p>
           </div>
         </div>

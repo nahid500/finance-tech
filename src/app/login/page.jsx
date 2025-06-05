@@ -16,13 +16,16 @@ const LoginPage = () => {
     const { email, password } = data;
 
     try {
-      const response = await fetch("http://localhost:5000/api/v1/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        "https://jakaria-finance-backend.vercel.app/api/v1/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       const data = await response.json();
 
@@ -37,10 +40,8 @@ const LoginPage = () => {
           // secure: true,
           sameSite: "Lax",
         });
-        navigation.push("/dashboard/services");
+        navigation.push("/dashboard/service");
       }
-
-      console.log(data);
     } catch (err) {
       console.log(err);
     }
