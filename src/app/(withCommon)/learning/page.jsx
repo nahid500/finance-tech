@@ -6,89 +6,81 @@ import { ArrowLeft, Clock, User, TrendingUp, BarChart3, Target, Database, Brain,
 const Learning = () => {
   const blogPosts = [
     {
-      title: "Introduction to Business Analytics",
-      excerpt: "Learn the fundamentals of business analytics and how it can transform your organization's decision-making process.",
-      author: "Analytics Team",
+      title: "What Is an ICO?",
+      excerpt: "An Initial Coin Offering (ICO) is a method for raising capital by selling cryptocurrency tokens to investors. ICOs provide a direct, fast, and efficient route to funding, bypassing traditional intermediaries. These tokens are used for accessing blockchain platforms or services, offering investors early access to promising projects. ICOs create decentralized investment opportunities, enabling anyone to contribute and participate in the cryptocurrency ecosystem.",
+      author: "ICO",
       readTime: "5 min read",
       date: "June 1, 2025",
-      category: "Fundamentals",
+      category: "ICO Basics",
       icon: BarChart3
     },
     {
-      title: "Data Visualization Best Practices",
-      excerpt: "Discover how to create compelling visualizations that tell your data's story effectively and drive actionable insights.",
-      author: "Data Science Team",
+      title: "What Is a Meme Token?",
+      excerpt: "Meme tokens are cryptocurrencies inspired by internet trends or jokes, like Dogecoin. They’re highly speculative and often driven by community hype rather than inherent utility. Meme tokens can experience massive price fluctuations based on social media influence and viral movements. While some tokens like Dogecoin have gained value, they are still volatile and carry higher risks for investors.",
+      author: "MemeCoins",
       readTime: "8 min read",
       date: "May 28, 2025",
-      category: "Visualization",
+      category: "MemeCoins",
       icon: TrendingUp
     },
     {
-      title: "Predictive Analytics for Business Growth",
-      excerpt: "Harness the power of predictive models to forecast trends and make informed decisions for sustainable growth.",
-      author: "ML Engineers",
+      title: "Understanding Decentralized Wallets",
+      excerpt: "A decentralized wallet lets users store cryptocurrency securely, providing full control over private keys. These wallets offer enhanced security and autonomy by eliminating reliance on third-party services. They are essential for interacting with decentralized finance (DeFi) applications and blockchain networks, providing secure access to digital assets. Decentralized wallets like MetaMask and Trust Wallet give users complete control over their crypto.",
+      author: "Wallets",
       readTime: "12 min read",
       date: "May 25, 2025",
-      category: "Advanced",
+      category: "Wallets",
       icon: Brain
     },
     {
-      title: "Building Data-Driven Organizations",
-      excerpt: "Learn how to create a culture of data-driven decision making across all levels of your organization.",
-      author: "Strategy Team",
+      title: "Exploring BONKbot",
+      excerpt: "BONKbot is Solana's official crypto trading bot integrated with Telegram. This bot enables users to execute trades and interact with the $BONK community directly within Telegram, streamlining the process of trading Solana tokens. By automating trades, BONKbot allows users to access the Solana ecosystem’s liquidity with ease and efficiency.",
+      author: "BONKbot",
       readTime: "10 min read",
       date: "May 22, 2025",
-      category: "Strategy",
+      category: "BONKbot",
       icon: Users
     },
     {
-      title: "Customer Analytics and Segmentation",
-      excerpt: "Master the art of customer segmentation using advanced analytics to improve marketing ROI and customer satisfaction.",
-      author: "Marketing Analytics",
+      title: "Raising Funds Through an ICO",
+      excerpt: "Launching an ICO allows entrepreneurs to raise funds by selling tokens to investors. ICOs provide a flexible, efficient method to fund projects, offering a global pool of investors. A well-executed ICO can attract funding quickly, providing early-stage capital. It’s a powerful tool for startups, bypassing traditional financial institutions while building community engagement and support.",
+      author: "Fundraising",
       readTime: "7 min read",
       date: "May 20, 2025",
-      category: "Marketing",
+      category: "Fundraising",
       icon: Target
     },
     {
-      title: "Database Design for Analytics",
-      excerpt: "Understand how to structure your data warehouse and databases for optimal analytics performance and scalability.",
-      author: "Data Engineering",
+      title: "Short-Term Income with Meme Tokens",
+      excerpt: "Meme tokens offer the potential for short-term profits due to their highly volatile nature. Price movements are often driven by trends and social media activity, creating opportunities for traders. However, these tokens can lose value rapidly once the hype fades, so investors must act quickly. By following trends and understanding the speculative nature of meme coins, you can capitalize on market movements.",
+      author: "Profits",
       readTime: "15 min read",
       date: "May 18, 2025",
-      category: "Technical",
+      category: "Profits",
       icon: Database
     },
     {
-      title: "Real-time Analytics Implementation",
-      excerpt: "Explore real-time data processing techniques and tools to enable instant business insights and rapid response.",
-      author: "Tech Team",
+      title: "How to Grow Your Business with ICO Funds",
+      excerpt: "CO funds can significantly boost your business by supporting product development, marketing, and team expansion. Efficient use of these funds helps scale operations quickly, allowing startups to accelerate their market presence. By strategically investing in key areas, entrepreneurs can maximize the potential of their ICO funding, leading to faster growth and greater investor confidence.",
+      author: "Growth",
       readTime: "11 min read",
       date: "May 15, 2025",
-      category: "Advanced",
+      category: "Growth",
       icon: TrendingUp
     },
     {
-      title: "Analytics ROI Measurement",
-      excerpt: "Learn frameworks and methodologies to measure and demonstrate the return on investment of your analytics initiatives.",
-      author: "Business Team",
+      title: "Jakaria.finance: Empowering Entrepreneurs and Investors",
+      excerpt: "Jakaria.finance helps entrepreneurs raise funds through ICOs and enables investors to earn short-term profits by launching meme tokens on DEX platforms — all with no upfront fees. Entrepreneurs receive expert ICO development and marketing support, while investors benefit from meme token launches with minimal risk. Jakaria.finance makes crypto accessible, allowing both entrepreneurs and investors to achieve success without financial barriers.",
+      author: "Empowerment",
       readTime: "6 min read",
       date: "May 12, 2025",
-      category: "Business",
+      category: "Empowerment",
       icon: Target
     },
-    {
-      title: "Machine Learning in Business Context",
-      excerpt: "Practical guide to implementing machine learning solutions that solve real business problems and create value.",
-      author: "AI Team",
-      readTime: "14 min read",
-      date: "May 10, 2025",
-      category: "AI/ML",
-      icon: Brain
-    }
+
   ];
 
-  const categories = ["All", "Fundamentals", "Visualization", "Advanced", "Strategy", "Marketing", "Technical", "Business", "AI/ML"];
+  const categories = ["All","ICO Basics", "MemeCoins", "Wallets", "BONKbot", "Fundraising", "Profits", "Growth", "Empowerment"];
   const [selectedCategory, setSelectedCategory] = React.useState("All");
 
   const filteredPosts = selectedCategory === "All" 

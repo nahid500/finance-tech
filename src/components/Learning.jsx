@@ -27,13 +27,10 @@ export const Learning = () => {
 
             <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-2">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-                Want to learn more about Business Analytics?
-              </h2>
-              
+                Want to Learn More About ICO Fundraising Analytics?</h2>
               <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-                Discover how data-driven insights can transform your business operations, 
-                improve decision-making, and drive growth through our comprehensive 
-                analytics solutions.
+                Unlock Data-Driven ICO Success with Jakaria.finance
+                Leverage our advanced ICO fundraising analytics, market trend analysis, and token performance insights to optimize your ICO launch, boost investor confidence, and drive business growth.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
