@@ -1,22 +1,49 @@
-export default function SecondNav() {
-    return (
-        <div className="bg-white p-2 md:px-6 fixed top-14 left-0 right-0 z-10 shadow-md w-full">
-            <div className="flex justify-evenly items-center max-w-screen-xl mx-auto text">
-                <div>
-                    <h1 className="font-bold">
-                        <span className="text-purple-600">Jakaria </span>
-                        <span className="text-red-600">Inc</span>
-                    </h1>
-                </div>
+import Image from 'next/image';
+import React from 'react';
+import logo from "@/assets/images/logo.png";
 
-                <nav>
-                    <ul className="flex gap-6 items-center text-purple-600 font-medium">
-                        <li>ICO</li>
-                        <li>DEX</li>
-                        <li>Community Build</li>
-                    </ul>
-                </nav>
-            </div>
+const SecondNav = () => {
+  return (
+    <header className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 sticky top-16 z-40 shadow-xl h-16 md:h-20">
+      <div className="absolute inset-0 bg-black/20"></div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16 md:h-20">
+          
+          {/* Logo */}
+              <Image
+                src={logo}
+                alt="Logo"
+                width={128}
+                height={128}
+                className="object-contain"
+              />
+
+          {/* Center Text */}
+          <div className="flex-1 text-center px-2">
+            <h1 className="text-white text-sm md:text-lg font-semibold leading-tight tracking-wide">
+              <span className="block md:inline bg-gradient-to-r from-cyan-200 via-white to-purple-200 bg-clip-text text-transparent">
+                Welcome to My
+              </span>
+              <span className="block md:inline ml-0 md:ml-1 bg-gradient-to-r from-purple-200 via-pink-200 to-cyan-200 bg-clip-text text-transparent">
+                Professional Website
+              </span>
+            </h1>
+            <div className="mt-1 h-0.5 w-20 md:w-24 mx-auto bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 rounded-full"></div>
+          </div>
+
+          {/* Contact Button */}
+          <div className="flex-shrink-0">
+            <button className="group relative bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-xl font-medium text-xs md:text-sm shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden">
+              <span className="relative z-10">Contact</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </button>
+          </div>
+
         </div>
-    );
-}
+      </div>
+    </header>
+  );
+};
+
+export default SecondNav;
