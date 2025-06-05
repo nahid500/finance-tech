@@ -141,7 +141,7 @@ const Learning = () => {
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-purple-600 transition-colors duration-200 line-clamp-2">
                   {post.title}
                 </h3>
-                <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed line-clamp-3">
+                <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed line-clamp-8">
                   {post.excerpt}
                 </p>
                 
