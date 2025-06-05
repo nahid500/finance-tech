@@ -42,8 +42,6 @@ const LoginPage = () => {
         });
         navigation.push("/dashboard/service");
       }
-
-      console.log(data);
     } catch (err) {
       console.log(err);
     }
