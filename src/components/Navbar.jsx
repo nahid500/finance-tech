@@ -1,55 +1,78 @@
 'use client';
 
-import Link from 'next/link';
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react'; // Icons for hamburger and close
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+const NavBar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const links = [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '#about' },
+    { name: 'Services', href: '#services' },
+    { name: 'Learning', href: '#learning' },
+    { name: 'Contact', href: '#contact' },
+  ];
 
   return (
-    <header className="bg-gradient-to-r from-purple-600 to-blue-600 fixed top-0 left-0 right-0 z-50 shadow-md w-full">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-        {/* Brand */}
-        <Link href="/" className="font-bold text-xl">
-          <span className="text-white">Jakaria </span>
-          <span className="text-red-500">Inc</span>
-        </Link>
-
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-6 items-center text-white font-medium">
-          <a href="#about" className="hover:text-gray-200 transition">About</a>
-          <a href="#services" className="hover:text-gray-200 transition">Services</a>
-          <a href="#learning" className="hover:text-gray-200 transition">Learning</a>
-          <Link href="/blogs" className="hover:text-gray-200 transition">Blogs</Link>
-          <a href="#pricing" className="hover:text-gray-200 transition">Pricing</a>
-        </nav>
-
-        {/* Contact + Hamburger */}
-        <div className="flex items-center gap-4">
-          <button className="bg-gradient-to-r from-purple-800 to-blue-800 text-white font-bold px-4 py-2 rounded-full hover:opacity-90 text-sm transition-all duration-200">
-            Contact
-          </button>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white"
-            aria-label="Toggle Menu"
+    <header className="bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 backdrop-blur-lg border-b border-white/10 sticky top-0 z-50 shadow-2xl">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16 relative">
+          
+          {/* Logo */}
+          <a
+            href="/"
+            className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 tracking-wide"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            Jakaria Inc.
+          </a>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-4 lg:space-x-8">
+            {links.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="relative text-white/90 hover:text-white px-3 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-white/10 backdrop-blur-sm group"
+              >
+                <span className="relative z-10">{link.name}</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </a>
+            ))}
+          </nav>
+
+          {/* Hamburger Icon */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="text-white hover:text-purple-300 focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+
+          {/* Mobile Menu Dropdown */}
+          {menuOpen && (
+            <div className="absolute top-full left-0 w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 border-t border-white/10 md:hidden shadow-lg z-40">
+              <nav className="flex flex-col px-4 py-3 space-y-2">
+                {links.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)} // Close menu on click
+                    className="text-white/90 hover:text-white px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 hover:bg-white/10 backdrop-blur-sm"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          )}
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-purple-700 w-full px-4 py-4 space-y-2 text-white font-medium transition-all overflow-hidden">
-          <a href="#about" onClick={() => setIsOpen(false)} className="block">About</a>
-          <a href="#services" onClick={() => setIsOpen(false)} className="block">Services</a>
-          <a href="#learning" onClick={() => setIsOpen(false)} className="block">Learning</a>
-          <Link href="/blogs" onClick={() => setIsOpen(false)} className="block">Blogs</Link>
-          <a href="#pricing" onClick={() => setIsOpen(false)} className="block">Pricing</a>
-        </div>
-      )}
     </header>
   );
-}
+};
+
+export default NavBar;

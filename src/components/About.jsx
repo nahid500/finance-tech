@@ -18,7 +18,7 @@ export default function About() {
   return (
     <div
       id="about"
-      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white grid grid-cols-1 mt-20 md:mt-0 md:grid-cols-2 py-8 px-10 md:px-28 items-center"
+      className="bg-gradient-to-r from-blue-400 to-purple-400 text-white grid grid-cols-1 mt-20 md:mt-0 md:grid-cols-2 py-8 px-10 md:px-28 items-center"
     >
       <motion.div
         className="flex justify-center"
@@ -42,13 +42,9 @@ export default function About() {
         <h2 className="text-center text-3xl font-bold mb-4">
           Welcome to Jakaria <span className="text-red-600">Inc.</span>
         </h2>
-        <p className="pt-4 text-xl">
-          Where innovation drives success. We help entrepreneurs and business
-          owners raise capital through ICOs, while anyone can launch memecoins
-          to generate short-term profits on decentralized exchanges. With over 5
-          years of fintech expertise, we provide the strategies to turn your
-          crypto goals into reality. Let’s create something impactful together!
-        </p>
+        <p className="pt-2 text-xl">
+          Struggling to raise capital, expand quickly, or want to raise funds without giving up your equity?</p>
+        <p className="pt-4 text-xl">We've got you covered! Raise funds for your company with a great valuation in just 7 days, with no upfront fees.</p>
       </motion.div>
     </div>
   );
