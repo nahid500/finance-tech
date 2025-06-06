@@ -12,7 +12,7 @@ const NavBar = () => {
     { name: 'Services', href: '#services' },
     { name: 'Learning', href: '#learning' },
     { name: 'Blogs', href: '/blogs' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Contact', href: '#footer' },
   ];
 
   return (
