@@ -2,8 +2,9 @@
 
 import { formatDateToYMD } from "@/utils/formateData";
 import axios from "axios";
-import { Check } from "lucide-react";
+import { Check, House, Phone } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
@@ -85,6 +86,20 @@ const SingleBlogPage = () => {
               adapting to emerging technologies.
             </p>
           </div>
+        </div>
+
+        <div className="mt-8 border shadow-lg px-5 py-7 rounded-xl flex justify-center items-center w-full gap-4">
+          <Link
+            href={"/"}
+            className=" md:w-1/4 bg-gradient-to-r from-green-600 to-green-700 text-white font-medium px-6 py-3 rounded-md flex justify-center items-center gap-2 md:gap-3 hover:scale-105 transition-transform duration-300 text-xs md:text-lg"
+          >
+            <House size={20} />
+            Go to home
+          </Link>
+          <button className="bg-gradient-to-r from-sky-600 to-sky-700 text-white  font-medium px-6 py-3 rounded-md md:w-1/4 flex justify-center items-center gap-2 md:gap-3 hover:scale-105 transition-transform duration-300 text-xs md:text-lg">
+            <Phone size={20} />
+            Contact now
+          </button>
         </div>
       </div>
     </div>
