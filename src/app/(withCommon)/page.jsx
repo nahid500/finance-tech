@@ -31,11 +31,11 @@ export default function Home() {
 
       <FAQ/>
 
+      <ChatWidget/>
+
       <Learning/>
 
       <NewsWidget/>
-
-      <ChatWidget/>
 
       <Footer/>
 

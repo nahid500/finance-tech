@@ -1,19 +1,22 @@
-import Script from 'next/script';
+"use client"
 
-const ChatWidget = () => (
-  <Script
-    id="anychat-widget"
-    strategy="afterInteractive"
-    dangerouslySetInnerHTML={{
-      __html: `(function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://api.anychat.one/widget/232a62e9-8a59-3e02-8dd3-f459c723eee9?r=' + encodeURIComponent(window.location);
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'contactus-jssdk'));`,
-    }}
-  />
-);
+// components/TawkTo.js
+import { useEffect } from 'react';
+
+const ChatWidget = () => {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const tawkScript = document.createElement('script');
+      tawkScript.src = 'https://embed.tawk.to/6842cd109ed8c2190a6d4e6a/1it2f22lj';
+      tawkScript.async = true;
+      tawkScript.charset = 'UTF-8';
+      tawkScript.setAttribute('crossorigin', '*');
+
+      document.body.appendChild(tawkScript);
+    }
+  }, []);
+
+  return null; // No visible output needed
+};
 
 export default ChatWidget;
