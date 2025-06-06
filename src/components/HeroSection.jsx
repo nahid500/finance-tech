@@ -3,17 +3,17 @@ import heroImage from "@/assets/images/heroPicture.png";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full h-screen overflow-hidden flex items-center justify-center text-white">
+    <section className="relative w-full h-64 md:h-screen overflow-hidden flex items-center justify-center text-white">
       {/* Mobile Image */}
       <div className="md:hidden absolute inset-0 z-[-1]">
         <Image
           src={heroImage}
           alt="Hero Background"
           layout="fill"
-          objectFit="cover"
+          objectFit="contain" // <-- Show full image
           priority
         />
-        <div className="absolute inset-0 bg-black/40" /> {/* Optional dark overlay */}
+        <div className="absolute inset-0 bg-black/40" /> {/* Optional overlay */}
       </div>
 
       {/* Desktop Video */}
@@ -28,8 +28,8 @@ export default function HeroSection() {
         Your browser does not support the video tag.
       </video>
 
-      <div className=" md:hidden text-center px-6">
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text mb-4">
+      <div className="text-center px-6 md:hidden">
+        <h1 className="text-3xl font-extrabold bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text mb-4">
           Jakaria Inc.
         </h1>
       </div>
