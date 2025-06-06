@@ -1,5 +1,6 @@
 "use client";
 
+import { ContactButton } from "@/components/ContactButton";
 import { formatDateToYMD } from "@/utils/formateData";
 import axios from "axios";
 import { Check, House, Phone } from "lucide-react";
@@ -96,10 +97,7 @@ const SingleBlogPage = () => {
             <House size={20} />
             Go to home
           </Link>
-          <button className="bg-gradient-to-r from-sky-600 to-sky-700 text-white  font-medium px-6 py-3 rounded-md md:w-1/4 flex justify-center items-center gap-2 md:gap-3 hover:scale-105 transition-transform duration-300 text-xs md:text-lg">
-            <Phone size={20} />
-            Contact now
-          </button>
+          <ContactButton/>
         </div>
       </div>
     </div>
