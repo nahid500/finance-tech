@@ -69,8 +69,6 @@ const EditServicePage = () => {
     getBlogData();
   }, [edit, reset]);
 
-  console.log(blog);
-
   const onSubmit = async (data) => {
     const toastId = toast.loading("Updating blog...");
     let updatedImg = blog?.img;

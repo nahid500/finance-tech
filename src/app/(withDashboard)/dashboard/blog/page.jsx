@@ -87,7 +87,7 @@ const DashboardBlogPage = () => {
                     <Image
                       src={blog.img}
                       alt={blog.title}
-                      className="border border-black rounded-full"
+                      className="border border-black rounded-full size-10"
                       width={40}
                       height={40}
                     />
