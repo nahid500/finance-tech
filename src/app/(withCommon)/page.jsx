@@ -10,6 +10,7 @@ import Speech from "@/components/Speech";
 import { Learning } from "@/components/Learning";
 import { Footer } from "@/components/Footer";
 import FAQ from "@/components/Faq";
+import ChatWidget from "@/components/widgets/ChatWidget";
 
 export default function Home() {
   return (
@@ -31,6 +32,8 @@ export default function Home() {
       <NewsWidget/>
 
       <Learning/>
+
+      <ChatWidget/>
 
       <FAQ/>
 

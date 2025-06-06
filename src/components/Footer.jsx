@@ -1,5 +1,12 @@
 "use client";
-import axios from "axios";
+import React from "react";
+import {
+  Mail,
+  Linkedin,
+  MessageCircle,
+  Facebook,
+  MessageSquareMore,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import { Linkedin, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
@@ -39,6 +46,7 @@ export const Footer = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Newsletter Section */}
           <div>
             <h3 className="text-lg font-semibold mb-4">
               Subscribe to our Newsletter
@@ -63,6 +71,7 @@ export const Footer = () => {
             </form>
           </div>
 
+          {/* Social Links Section */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
             <ul className="space-y-3">
@@ -74,7 +83,18 @@ export const Footer = () => {
                   className="flex items-center gap-2 hover:underline"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  WhatsApp Messenger
+                  WhatsApp
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://m.me/yourmessengerlink"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:underline"
+                >
+                  <MessageSquareMore className="w-4 h-4" />
+                  Messenger
                 </a>
               </li>
               <li>
@@ -85,12 +105,24 @@ export const Footer = () => {
                   className="flex items-center gap-2 hover:underline"
                 >
                   <Linkedin className="w-4 h-4" />
-                  LinkedIn Profile
+                  LinkedIn
                 </a>
               </li>
+              {/* <li>
+                <a
+                  href="https://www.facebook.com/yourfacebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:underline"
+                >
+                  <Facebook className="w-4 h-4" />
+                  Facebook
+                </a>
+              </li> */}
             </ul>
           </div>
 
+          {/* About Section */}
           <div className="flex flex-col justify-between">
             <div>
               <h3 className="text-lg font-semibold mb-4">About</h3>
