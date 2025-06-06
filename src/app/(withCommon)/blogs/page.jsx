@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 
 export default function Blogs() {
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getBlogData = async () => {
@@ -19,6 +20,7 @@ export default function Blogs() {
 
         if (response.data?.success) {
           setBlogs(response.data.data);
+          setLoading(false);
         }
       } catch (error) {
         console.error("Error fetching blog:", error.message);
@@ -28,6 +30,10 @@ export default function Blogs() {
 
     getBlogData();
   }, []);
+
+  if (loading) {
+    return <p className="flex justify-center items-center mt-20">Loading...</p>;
+  }
 
   if (blogs.length === 0) {
     return (

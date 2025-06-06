@@ -60,7 +60,7 @@ const LoginPage = () => {
             id="email"
             {...register("email", { required: true })}
             placeholder="Enter your email"
-            defaultValue={"jakariafinancedatabase@gmail.com"}
+            // defaultValue={"jakariafinancedatabase@gmail.com"}
           />
         </div>
 
@@ -71,7 +71,7 @@ const LoginPage = () => {
             id="password"
             {...register("password", { required: true })}
             placeholder="Enter your password"
-            defaultValue={"#Jakaria017891#"}
+            // defaultValue={"#Jakaria017891#"}
           />
           <span
             className="absolute right-3 top-9 cursor-pointer"
