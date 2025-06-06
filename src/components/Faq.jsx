@@ -76,7 +76,7 @@ export default function FAQ() {
         <div className="mt-10 text-center">
           <p className="text-gray-600 mb-4">Still have questions?</p>
           <a
-            href="mailto:info@example.com"
+            href="https://m.me/jakaria.sarkar.790"
             className="inline-block bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition"
           >
             Book a Schedule

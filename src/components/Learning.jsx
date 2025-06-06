@@ -8,7 +8,7 @@ export const Learning = () => {
   };
 
   const handleScheduleClick = () => {
-    window.open('https://m.me/yourpage', '_blank');
+    window.open('https://m.me/jakaria.sarkar.790', '_blank');
   };
 
   return (

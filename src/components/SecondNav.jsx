@@ -1,6 +1,9 @@
+
+"use client"
 import Image from 'next/image';
 import React from 'react';
 import logo from "@/assets/images/logo.png";
+import { ContactButton } from './ContactButton';
 
 const SecondNav = () => {
   return (
@@ -22,10 +25,7 @@ const SecondNav = () => {
           <div className="flex-1 text-center px-2">
             <h1 className="text-white text-sm md:text-lg font-semibold leading-tight tracking-wide">
               <span className="block md:inline bg-gradient-to-r from-cyan-200 via-white to-purple-200 bg-clip-text text-transparent">
-                Welcome to My
-              </span>
-              <span className="block md:inline ml-0 md:ml-1 bg-gradient-to-r from-purple-200 via-pink-200 to-cyan-200 bg-clip-text text-transparent">
-                Professional Website
+                Start your fundraising journey now!
               </span>
             </h1>
             <div className="mt-1 h-0.5 w-20 md:w-24 mx-auto bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 rounded-full"></div>
@@ -33,12 +33,9 @@ const SecondNav = () => {
 
           {/* Contact Button */}
           <div className="flex-shrink-0">
-            <button className="group relative bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-3 py-1.5 md:px-4 md:py-2 rounded-xl font-medium text-xs md:text-sm shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden">
-              <span className="relative z-10">Contact</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </button>
+            <ContactButton />
           </div>
+
 
         </div>
       </div>
