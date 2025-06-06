@@ -29,13 +29,13 @@ export default function Home() {
 
       <WidgetThree/>
 
-      <NewsWidget/>
+      <FAQ/>
 
       <Learning/>
 
-      <ChatWidget/>
+      <NewsWidget/>
 
-      <FAQ/>
+      <ChatWidget/>
 
       <Footer/>
 

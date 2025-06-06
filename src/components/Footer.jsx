@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import axios from "axios";
+import { FaTelegramPlane } from "react-icons/fa";
 import {
   Linkedin,
   MessageCircle,
@@ -71,7 +72,7 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="https://wa.me/yourwhatsapplink"
+                  href="https://wa.me/13148573244"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:underline"
@@ -82,7 +83,7 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://m.me/yourmessengerlink"
+                  href="https://m.me/jakaria.sarkar.790"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:underline"
@@ -93,7 +94,7 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://www.linkedin.com/in/yourlinkedin"
+                  href="https://www.linkedin.com/in/jakariafinance"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:underline"
@@ -102,18 +103,19 @@ export const Footer = () => {
                   LinkedIn
                 </a>
               </li>
-              {/* <li>
+              <li>
                 <a
-                  href="https://www.facebook.com/yourfacebook"
+                  href="https://t.me/Jakaria_finance"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:underline"
                 >
-                  <Facebook className="w-4 h-4" />
-                  Facebook
+                  <FaTelegramPlane className="w-4 h-4" />
+                  Telegram
                 </a>
-              </li> */}
+              </li>
             </ul>
+
           </div>
 
           {/* About Section */}
