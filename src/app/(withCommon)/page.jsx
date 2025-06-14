@@ -23,7 +23,7 @@ export default function Home() {
 
       <WidgetTwo/>
 
-      <CustomerWidget />
+      {/* <CustomerWidget /> */}
 
       <WhyUs/>
 

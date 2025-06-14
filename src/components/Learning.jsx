@@ -12,7 +12,7 @@ export const Learning = () => {
   };
 
   return (
-    <section id='learning' className="py-8 sm:py-12 lg:py-16 bg-gray-50">
+    <section id='learning' className="py-8 sm:py-12 lg:py-16 bg-gray-50 scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">

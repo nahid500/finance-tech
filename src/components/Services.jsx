@@ -32,7 +32,7 @@ export default function Services() {
   }, []);
 
   return (
-    <div id="services">
+    <div id="services" className="scroll-mt-36">
       {services.map((service, index) => {
         const slideFromLeft = {
           hidden: { opacity: 0, x: -100 },
@@ -55,6 +55,7 @@ export default function Services() {
             variants={index % 2 === 0 ? slideFromLeft : slideFromRight}
           >
             <div
+              id="services"
               className={`flex flex-col md:flex-row ${
                 index % 2 !== 0 ? "md:flex-row-reverse" : ""
               } items-center gap-6`}

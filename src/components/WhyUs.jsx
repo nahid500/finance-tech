@@ -20,7 +20,7 @@ export default function WhyUs() {
   return (
     <section
       id="why-us"
-      className="bg-gradient-to-br from-purple-50 via-white to-blue-50 grid grid-cols-1 md:grid-cols-2 py-12 px-10 md:px-32 items-center"
+      className="bg-gradient-to-br from-purple-50 via-white to-blue-50 grid grid-cols-1 scroll-mt-36 md:grid-cols-2 py-12 px-10 md:px-32 items-center"
     >
       <motion.div
         className="px-6"
