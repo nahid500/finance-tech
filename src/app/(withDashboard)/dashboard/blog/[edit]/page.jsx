@@ -1,31 +1,11 @@
 "use client";
 
 import convertImgToBase64 from "@/utils/convertToBase64";
-import { useParams, useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
-import serviceImg from "@/assets/images/s1.png";
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-
-const serviceData = [
-  {
-    _id: 1,
-    title: "ICO Expert",
-    content:
-      "Easily raise funds within 7 days and ensure long-term growth with expert ICO services. From token creation to attracting investors, every step is carefully managed to ensure your project's success.",
-    img: serviceImg,
-    topic: "ICO",
-  },
-  {
-    _id: 2,
-    title: "Blockchain Development",
-    content:
-      "Custom blockchain solutions tailored to your business needs. From smart contract development to full blockchain integration, we handle everything.",
-    img: serviceImg,
-    topic: "Blockchain",
-  },
-];
 
 const EditServicePage = () => {
   const { edit } = useParams();
