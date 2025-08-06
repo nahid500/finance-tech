@@ -14,31 +14,30 @@ import ChatWidget from "@/components/widgets/ChatWidget";
 
 export default function Home() {
   return (
-    <>
+    <div className="overflow-hidden">
       <HeroSection />
       <About />
       <Services />
 
-      <Speech/>
+      <Speech />
 
-      {/* <WidgetTwo/> */}
+      <WidgetTwo/>
 
       {/* <CustomerWidget /> */}
 
-      <WhyUs/>
+      <WhyUs />
 
-      {/* <WidgetThree/> */}
+      <WidgetThree/>
 
-      <FAQ/>
+      <FAQ />
 
-      {/* <ChatWidget/> */}
+      <ChatWidget/>
 
-      <Learning/>
+      <Learning />
 
-      {/* <NewsWidget/> */}
+      <NewsWidget/>
 
-      <Footer/>
-
-    </>
+      <Footer />
+    </div>
   );
 }
