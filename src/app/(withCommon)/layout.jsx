@@ -6,7 +6,7 @@ const CommonLayout = ({ children }) => {
   return (
     <div>
       <Navbar />
-      <SecondNav/>
+      {/* <SecondNav/> */}
       {children}
     </div>
   );

@@ -79,11 +79,11 @@ export default function Services() {
                 </p>
               </div>
             </div>
-            {index === 1 && (
+            {/* {index === 1 && (
               <div>
                 <WidgetOne />
               </div>
-            )}
+            )} */}
           </motion.div>
         );
       })}

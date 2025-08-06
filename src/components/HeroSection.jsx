@@ -1,38 +1,41 @@
-import Image from "next/image";
-import heroImage from "@/assets/images/heroPicture.png";
+import React from "react";
+import { FaWhatsapp } from 'react-icons/fa';
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full h-64 md:h-screen overflow-hidden flex items-center justify-center text-white">
-      {/* Mobile Image */}
-      <div className="md:hidden absolute inset-0 z-[-1]">
-        <Image
-          src={heroImage}
-          alt="Hero Background"
-          layout="fill"
-          objectFit="contain" // <-- Show full image
-          priority
-        />
-        <div className="absolute inset-0 bg-black/40" /> {/* Optional overlay */}
-      </div>
-
-      {/* Desktop Video */}
+    <section id="hero-section" className="relative w-full h-96 md:h-screen overflow-hidden flex items-center justify-start text-white px-6">
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="hidden md:block absolute inset-0 w-full h-full object-cover z-[-1]"
+        className="absolute inset-0 w-full h-full object-cover z-[-1]"
       >
-        <source src="/BG02.mp4" type="video/mp4" />
+        <source src="/herovid.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      <div className="text-center px-6 md:hidden">
-        <h1 className="text-3xl font-extrabold bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text mb-4">
-          Jakaria Inc.
+      <div className="max-w-md">
+        <h1 className="text-xl md:text-3xl font-bold font-mono text-white text-transparent bg-clip-text mb-4">
+          Efficient and Scalable ICO Fundraising for Your Business
         </h1>
-      </div>
-    </section>
-  );
+        <p className="text-white/90 text-sm md:text-base">
+          Unlock your business's potential with efficient ICO strategies designed for growth and success. Fast, secure, and tailored to scale.
+        </p>
+        <a
+          href="https://wa.me/13148573244"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Contact us on WhatsApp"
+        >
+          <button
+            className="flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full px-4 py-2 mt-4"
+          >
+            <FaWhatsapp size={32} className="text-lime-300" />
+            <p className="text-lime-300 text-sm font-semibold">Book a Free Consultation</p>
+          </button>
+        </a>
+              </div>
+            </section>
+          );
 }
