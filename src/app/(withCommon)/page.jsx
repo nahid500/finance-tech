@@ -21,13 +21,13 @@ export default function Home() {
 
       <Speech />
 
-      <WidgetTwo/>
+      {/* <WidgetTwo/> */}
 
       {/* <CustomerWidget /> */}
 
       <WhyUs />
 
-      <WidgetThree/>
+      {/* <WidgetThree/> */}
 
       <FAQ />
 
