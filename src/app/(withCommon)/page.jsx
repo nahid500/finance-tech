@@ -1,43 +1,59 @@
 import About from "@/components/About";
-import CustomerWidget from "@/components/widgets/CustomerWidget";
 import HeroSection from "@/components/HeroSection";
 import Services from "@/components/Services";
-import WidgetThree from "@/components/widgets/WidgetThree";
 import WhyUs from "@/components/WhyUs";
-import WidgetTwo from "@/components/widgets/WidgetTwo";
 import NewsWidget from "@/components/widgets/NewsWidget";
 import Speech from "@/components/Speech";
 import { Learning } from "@/components/Learning";
 import { Footer } from "@/components/Footer";
 import FAQ from "@/components/Faq";
 import ChatWidget from "@/components/widgets/ChatWidget";
+import AdditionalServices from "@/components/AdditionalServices";
+import Achievments from "@/components/Achievments";
+import Reviews from "@/components/Reviews";
+import TradingViewWidget from "@/components/widgets/TradingViewWidget";
+import TradingWidget from "@/components/widgets/TradingWidget";
+import TradingView from "@/components/widgets/TradingView";
+import Trading from "@/components/widgets/Trading";
 
 export default function Home() {
   return (
     <div className="overflow-hidden">
+
       <HeroSection />
+
+      <TradingViewWidget/>
+
       <About />
-      <Services />
 
-      <Speech />
-
-      {/* <WidgetTwo/> */}
-
-      {/* <CustomerWidget /> */}
+      <Achievments/>
 
       <WhyUs />
 
-      {/* <WidgetThree/> */}
+      <TradingWidget/>
 
-      <FAQ />
+      <Services />
+      
+      <AdditionalServices />
 
       <ChatWidget/>
 
+      <Speech />
+
+      <TradingView/>
+
       <Learning />
 
-      <NewsWidget/>
+      <Reviews/>
+
+      <Trading/>
+
+      {/* <NewsWidget/> */}
+
+      <FAQ />
 
       <Footer />
+
     </div>
   );
 }

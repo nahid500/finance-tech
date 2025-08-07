@@ -1,11 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import s1 from "@/assets/images/s1.png";
-import s2 from "@/assets/images/s2.png";
-import s3 from "@/assets/images/s3.png";
 import { motion } from "framer-motion";
-import WidgetOne from "./widgets/WidgetOne";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
