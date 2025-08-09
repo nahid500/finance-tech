@@ -10,7 +10,6 @@ const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // ✅ Detect scroll using useEffect
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 400) {
@@ -41,7 +40,7 @@ const NavBar = () => {
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-evenly items-center h-16 relative">
+        <div className="flex justify-between items-center h-16 relative">
           <Image
             src={logo}
             alt="Logo"
@@ -67,6 +66,12 @@ const NavBar = () => {
               <ContactButton />
             </div>
           </nav>
+
+
+          {/* Contact Button */}
+          <div className="md:hidden flex-shrink-0">
+            <ContactButton />
+          </div>
 
           {/* Mobile Toggle */}
           <div className="md:hidden flex items-center">
@@ -97,10 +102,7 @@ const NavBar = () => {
                 </a>
               ))}
             </nav>
-                      {/* Contact Button */}
-          <div className="flex-shrink-0">
-            <ContactButton />
-          </div>
+
           </div>
         )}
       </div>
