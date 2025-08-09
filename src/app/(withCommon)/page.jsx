@@ -13,7 +13,7 @@ import Achievments from "@/components/Achievments";
 import Reviews from "@/components/Reviews";
 import TradingViewWidget from "@/components/widgets/TradingViewWidget";
 import TradingWidget from "@/components/widgets/TradingWidget";
-import TradingView from "@/components/widgets/TradingView";
+import Crypto from "@/components/widgets/Crypto";
 import Trading from "@/components/widgets/Trading";
 
 export default function Home() {
@@ -40,7 +40,7 @@ export default function Home() {
 
       <Speech />
 
-      <TradingView/>
+      <Crypto/>
 
       <Learning />
 
