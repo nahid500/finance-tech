@@ -1,33 +1,31 @@
 "use client";
 
+import Loading from "@/components/ui/Loading";
+import { useGetAllBlogQuery } from "@/redux/api/blogApi";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast } from "sonner";
 
 const DashboardBlogPage = () => {
-  const [blogs, setBlogs] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [page, setPage] = useState(1);
+  const limit = 5;
 
-  useEffect(() => {
-    const getBlogsData = async () => {
-      try {
-        const response = await axios.get(
-          "https://jakaria-finance-backend.vercel.app/api/v1/blogs"
-        );
+  const { data, isLoading } = useGetAllBlogQuery({
+    searchTerm,
+    page,
+    limit,
+  });
 
-        if (response.data?.success) {
-          setBlogs(response.data.data);
-        } else {
-          console.error("Failed to fetch Blogs:", response.data.message);
-        }
-      } catch (err) {
-        console.error("Error fetching blogs:", err.message);
-      }
-    };
+  const blogs = data?.data?.blogs;
+  const totalPages = data?.data?.meta?.totalPages;
 
-    getBlogsData();
-  }, []);
+  console.log(totalPages);
+  if (isLoading) {
+    return <Loading />;
+  }
 
   const handleDelete = async (id) => {
     const toastId = toast.loading("Deleting blog...");
@@ -37,7 +35,6 @@ const DashboardBlogPage = () => {
       );
 
       if (res.data.success) {
-        setBlogs((prev) => prev.filter((blog) => blog._id !== id));
         toast.success("Blog deleted successfully", { id: toastId });
       }
     } catch (err) {
@@ -55,6 +52,20 @@ const DashboardBlogPage = () => {
         </Link>
       </div>
 
+      {/* Search bar */}
+      <div className="mt-4">
+        <input
+          type="text"
+          placeholder="Search blogs..."
+          value={searchTerm}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+            setPage(1);
+          }}
+          className="w-full sm:w-1/3"
+        />
+      </div>
+
       <div className="mt-5">
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow">
@@ -70,15 +81,23 @@ const DashboardBlogPage = () => {
                   Topic
                 </th>
                 <th className="px-6 py-2 text-left text-sm font-semibold uppercase">
-                  Content
-                </th>
-                <th className="px-6 py-2 text-left text-sm font-semibold uppercase">
                   Actions
                 </th>
               </tr>
             </thead>
             <tbody>
-              {blogs.map((blog, index) => (
+              {blogs?.length === 0 && (
+                <tr>
+                  <td
+                    colSpan={4}
+                    className="px-6 py-4 text-center text-gray-500"
+                  >
+                    No blogs found
+                  </td>
+                </tr>
+              )}
+
+              {blogs?.map((blog, index) => (
                 <tr
                   key={blog._id}
                   className="border-t border-gray-200 hover:bg-gray-50 transition duration-200"
@@ -97,9 +116,6 @@ const DashboardBlogPage = () => {
                   </td>
                   <td className="px-6 py-2  text-sm  text-gray-900">
                     {blog.topic}
-                  </td>
-                  <td className="px-6 py-2 text-sm text-gray-700 max-w-xs truncate">
-                    {blog.content}
                   </td>
 
                   <td className="px-6 py-2">
@@ -121,6 +137,26 @@ const DashboardBlogPage = () => {
               ))}
             </tbody>
           </table>
+        </div>
+
+        <div className="flex justify-end mt-4 space-x-2">
+          <button
+            className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
+            onClick={() => setPage((prev) => prev - 1)}
+            disabled={page === 1}
+          >
+            Prev
+          </button>
+          <span className="px-3 py-1 border rounded">
+            Page {page} of {totalPages}
+          </span>
+          <button
+            className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
+            onClick={() => setPage((prev) => prev + 1)}
+            disabled={page === totalPages}
+          >
+            Next
+          </button>
         </div>
       </div>
     </div>

@@ -2,8 +2,9 @@
 
 import convertImgToBase64 from "@/utils/convertToBase64";
 import axios from "axios";
+import JoditEditor from "jodit-react";
 import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -15,11 +16,22 @@ const EditServicePage = () => {
   const { register, handleSubmit, reset } = useForm({
     defaultValues: {
       title: blog?.title,
-      content: blog?.content,
       topic: blog?.topic,
-      img: null, // Initialize img as null for file input
+      img: null,
+      conclusion: blog?.conclusion,
     },
   });
+
+  const editor = useRef(null);
+  const [content, setContent] = useState(blog?.content);
+
+  const config = useMemo(
+    () => ({
+      readonly: false,
+      placeholder: "Start typings...",
+    }),
+    [blog]
+  );
 
   useEffect(() => {
     const getBlogData = async () => {
@@ -34,10 +46,14 @@ const EditServicePage = () => {
 
           reset({
             title: fetchedBlog.title,
-            content: fetchedBlog.content,
             topic: fetchedBlog.topic,
             img: null,
+            conclusion: fetchedBlog.conclusion,
           });
+
+          console.log(fetchedBlog);
+
+          setContent(fetchedBlog.content);
         } else {
           console.error("Failed to fetch blog:", response.data.message);
         }
@@ -59,10 +75,13 @@ const EditServicePage = () => {
 
     const blogData = {
       title: data.title,
-      content: data.content,
+      content: content,
       topic: data.topic,
       img: updatedImg,
+      conclusion: data.conclusion,
     };
+
+    console.log(blogData);
 
     try {
       const res = await axios.patch(
@@ -134,13 +153,26 @@ const EditServicePage = () => {
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-2">Blog Content</label>
+          <label className="block text-sm font-medium mb-2">Conclusion</label>
           <textarea
-            rows="4"
-            {...register("content")}
-            placeholder="Enter Blog Content"
-            className="w-full"
-          ></textarea>
+            {...register("conclusion")}
+            placeholder="Enter blog conclusion"
+            className="w-full py-3"
+          />
+        </div>
+
+        <hr className="my-4 border-zinc-400" />
+
+        <div className="mb-4">
+          <label className="block text-sm font-medium mb-2">Blog Content</label>
+          <JoditEditor
+            ref={editor}
+            value={content}
+            config={config}
+            tabIndex={1}
+            onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+            onChange={(newContent) => {}}
+          />
         </div>
 
         <button
