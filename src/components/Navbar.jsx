@@ -23,6 +23,18 @@ const NavBar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
+
   const links = [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '#services' },
@@ -34,10 +46,11 @@ const NavBar = () => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
-        ${scrolled
+        ${(scrolled || menuOpen)
           ? 'bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 backdrop-blur-lg border-b border-white/10 shadow-lg'
           : 'bg-transparent'
-        }`}
+        }
+      `}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 relative">
@@ -61,14 +74,13 @@ const NavBar = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </a>
             ))}
-           {/* Contact Button */}
+            {/* Contact Button */}
             <div className="md:pl-8">
               <ContactButton />
             </div>
           </nav>
 
-
-          {/* Contact Button */}
+          {/* Contact Button Mobile */}
           <div className="md:hidden flex-shrink-0">
             <ContactButton />
           </div>
@@ -83,13 +95,11 @@ const NavBar = () => {
               {menuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
-
-
         </div>
 
-        {/* Mobile Dropdown */}
+        {/* Mobile Dropdown Menu */}
         {menuOpen && (
-          <div className="absolute top-full left-0 w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 border-t border-white/10 md:hidden shadow-lg z-40">
+          <div className="fixed top-16 left-0 w-full h-[calc(100vh-64px)] bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 border-t border-white/10 md:hidden shadow-lg z-40 overflow-y-auto">
             <nav className="flex flex-col px-4 py-3 space-y-2">
               {links.map((link) => (
                 <a
@@ -102,7 +112,6 @@ const NavBar = () => {
                 </a>
               ))}
             </nav>
-
           </div>
         )}
       </div>
