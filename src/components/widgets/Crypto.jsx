@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useRef, memo } from 'react';
 
-function TradingView() {
+function Crypto() {
   const container = useRef();
 
   useEffect(
@@ -19,7 +19,7 @@ function TradingView() {
           "isTransparent": false,
           "locale": "en",
           "width": "100%",
-          "height": "100%"
+          "height": 550
         }`;
       container.current.appendChild(script);
     },
@@ -27,11 +27,11 @@ function TradingView() {
   );
 
   return (
-    <div className="tradingview-widget-container" ref={container}>
+    <div className="tradingview-widget-container md:px-24" ref={container}>
       <div className="tradingview-widget-container__widget"></div>
       <div className="tradingview-widget-copyright"><a href="https://www.tradingview.com/crypto-coins-screener/" rel="noopener nofollow" target="_blank"><span className="blue-text">Cryptocurrency market by TradingView</span></a></div>
     </div>
   );
 }
 
-export default memo(TradingView);
+export default memo(Crypto);
