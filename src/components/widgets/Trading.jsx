@@ -55,7 +55,7 @@ function TradingViewWidget() {
       headerFontSize: 'medium',
       autosize: true,
       width: '100%',
-      height: '100%',
+      height: '80%',
       noTimeScale: false,
       hideDateRanges: false,
       hideMarketStatus: false,
@@ -65,7 +65,7 @@ function TradingViewWidget() {
     container.current.appendChild(script);
 
     return () => {
-      container.current.innerHTML = '';
+      container.current.textContent = '';
     };
   }, []);
 
