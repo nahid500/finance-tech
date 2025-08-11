@@ -2,8 +2,9 @@
 
 import convertImgToBase64 from "@/utils/convertToBase64";
 import axios from "axios";
+import JoditEditor from "jodit-react";
 import { useRouter } from "next/navigation";
-import React from "react";
+import { useMemo, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -11,21 +12,34 @@ const AddBlogPage = () => {
   const { register, handleSubmit } = useForm();
   const router = useRouter();
 
+  const editor = useRef(null);
+  const [content, setContent] = useState("");
+
+  const config = useMemo(
+    () => ({
+      readonly: false,
+      placeholder: "Start typings...",
+    }),
+    []
+  );
+
   const onSubmit = async (data) => {
     const toastId = toast.loading("Adding blog...");
 
     const base64Img = await convertImgToBase64(data.img[0]);
-    const serviceData = {
+
+    const blogData = {
       title: data.title,
-      content: data.content,
+      content: content,
       topic: data.topic,
       img: base64Img,
+      conclusion: data?.conclusion,
     };
 
     try {
       const res = await axios.post(
         "https://jakaria-finance-backend.vercel.app/api/v1/blogs",
-        serviceData,
+        blogData,
         {
           headers: {
             "Content-Type": "application/json",
@@ -89,13 +103,26 @@ const AddBlogPage = () => {
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-2">Blog Content</label>
+          <label className="block text-sm font-medium mb-2">Conclusion</label>
           <textarea
-            rows="4"
-            {...register("content")}
-            placeholder="Enter Blog Content"
-            className="w-full"
-          ></textarea>
+            {...register("conclusion")}
+            placeholder="Enter blog conclusion"
+            className="w-full py-3"
+          />
+        </div>
+
+        <hr className="my-4 border-zinc-400" />
+
+        <div className="mb-4">
+          <label className="block text-sm font-medium mb-2">Blog Content</label>
+          <JoditEditor
+            ref={editor}
+            value={content}
+            config={config}
+            tabIndex={1} // tabIndex of textarea
+            onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+            onChange={(newContent) => {}}
+          />
         </div>
 
         <button
