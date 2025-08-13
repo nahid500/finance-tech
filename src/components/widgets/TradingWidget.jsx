@@ -25,7 +25,7 @@ function TradingViewWidget() {
       exchanges: [],
       hasTopBar: false,
       isDataSetEnabled: false,
-      isZoomEnabled: true,
+      isZoomEnabled: false,
       hasSymbolTooltip: true,
       isMonoSize: false,
       width: "100%",
@@ -37,7 +37,7 @@ function TradingViewWidget() {
 
     return () => {
       if (container.current) {
-        container.current.innerHTML = "";
+        container.current.textContent = "";
       }
     };
   }, []);
