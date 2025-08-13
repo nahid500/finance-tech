@@ -10,7 +10,7 @@ const BlogCard = ({ blog }) => {
   const truncatedHTML = htmlTruncate(blog.content, 200);
 
   return (
-    <div className="max-w-7xl mx-auto p-4 " key={blog._id}>
+    <div className=" mx-auto py-4 " key={blog._id}>
       <div className="overflow-hidden flex flex-col md:flex-row bg-white rounded-lg shadow-md h-[450px] border group hover:shadow-xl transition-shadow duration-300 ">
         <div className="relative w-full h-full md:w-1/2 overflow-hidden rounded-t-lg md:rounded-l-lg md:rounded-t-none">
           <Image

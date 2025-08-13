@@ -1,47 +1,30 @@
 "use client";
 
 import { ContactButton } from "@/components/ContactButton";
+import Loading from "@/components/ui/Loading";
+import { useGetAllBlogQuery, useGetSingleBlogQuery } from "@/redux/api/blogApi";
 import { formatDateToYMD } from "@/utils/formateData";
-import axios from "axios";
 import { Check, House } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
 
 const SingleBlogPage = () => {
-  const [blog, setBlog] = useState(null);
   const { id } = useParams();
 
-  console.log(blog);
+  const { data, isLoading } = useGetSingleBlogQuery(id);
+  const { data: allBlog, isLoading: allLoading } = useGetAllBlogQuery({});
 
-  useEffect(() => {
-    const getBlogData = async () => {
-      try {
-        const response = await axios.get(
-          `https://jakaria-finance-backend.vercel.app/api/v1/blogs/${id}`
-        );
-
-        if (response.data?.success) {
-          setBlog(response.data.data);
-        } else {
-          console.error("Failed to fetch blog:", response.data.message);
-        }
-      } catch (error) {
-        console.error("Error fetching blog:", error.message);
-      }
-    };
-
-    getBlogData();
-  }, [id]);
-
-  if (!blog) {
-    return (
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="md:mt-24 text-center">Loading....</h1>
-      </div>
-    );
+  if (isLoading || allLoading) {
+    return <Loading />;
   }
+
+  const allBlogData = allBlog?.data?.blogs;
+  const blog = data?.data;
+
+  const currentIndex = allBlogData.findIndex((item) => item._id === blog._id);
+  const prevBlog = allBlogData[currentIndex + 1] || null;
+  const nextBlog = allBlogData[currentIndex - 1] || null;
 
   return (
     <div className="w-full max-w-6xl mx-auto my-10 px-5 md:px-0 pt-10">
@@ -89,10 +72,34 @@ const SingleBlogPage = () => {
           </div>
         </div>
 
+        {/* Prev & Next buttons */}
+        <div className="flex justify-between items-center mt-6">
+          {prevBlog ? (
+            <Link
+              href={`/blogs/${prevBlog._id}`}
+              className="py-2 px-4 border border-zinc-500 rounded-md bg-gray-100 hover:bg-gray-200 w-full max-w-[400px] text-center"
+            >
+              Previous
+            </Link>
+          ) : (
+            <span className="w-full max-w-[400px]" />
+          )}
+          {nextBlog ? (
+            <Link
+              href={`/blogs/${nextBlog._id}`}
+              className="py-2 px-4 border border-zinc-500 rounded-md bg-gray-100 hover:bg-gray-200 w-full max-w-[400px] text-center"
+            >
+              Next
+            </Link>
+          ) : (
+            <span className="w-full max-w-[400px]" />
+          )}
+        </div>
+
         <div className="mt-8 border shadow-lg px-5 py-7 rounded-xl flex justify-center items-center w-full gap-4">
           <Link
             href={"/"}
-            className=" md:w-1/4 bg-gradient-to-r from-green-600 to-green-700 text-white font-medium px-6 py-3 rounded-md flex justify-center items-center gap-2 md:gap-3 hover:scale-105 transition-transform duration-300 text-xs md:text-lg"
+            className=" md:w-1/4 bg-gradient-to-r from-green-600 to-green-700 text-white font-medium px-6 py-3 rounded-full flex justify-center items-center gap-2 md:gap-3 hover:scale-105 transition-transform duration-300 text-xs md:text-lg"
           >
             <House size={20} />
             Go to home
