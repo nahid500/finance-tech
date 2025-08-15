@@ -22,9 +22,15 @@ const SingleBlogPage = () => {
   const allBlogData = allBlog?.data?.blogs;
   const blog = data?.data;
 
-  const currentIndex = allBlogData.findIndex((item) => item._id === blog._id);
-  const prevBlog = allBlogData[currentIndex + 1] || null;
-  const nextBlog = allBlogData[currentIndex - 1] || null;
+  const sortedBlogs = [...allBlogData].sort(
+    (a, b) => new Date(a.createdDate) + new Date(b.createdDate)
+  );
+
+  console.log(sortedBlogs);
+
+  const currentIndex = sortedBlogs.findIndex((item) => item._id === blog._id);
+  const prevBlog = sortedBlogs[currentIndex - 1] || null;
+  const nextBlog = sortedBlogs[currentIndex + 1] || null;
 
   return (
     <div className="w-full max-w-6xl mx-auto my-10 px-5 md:px-0 pt-10">
@@ -34,7 +40,7 @@ const SingleBlogPage = () => {
           {blog?.topic}
         </span>
         <span className="text-gray-500 text-sm">
-          • {formatDateToYMD(blog?.createdAt)}
+          • {formatDateToYMD(blog?.createdDate)}
         </span>
       </div>
 

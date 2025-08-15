@@ -19,6 +19,7 @@ const EditServicePage = () => {
       topic: blog?.topic,
       img: null,
       conclusion: blog?.conclusion,
+      createdDate: blog?.createdDate,
     },
   });
 
@@ -51,8 +52,6 @@ const EditServicePage = () => {
             conclusion: fetchedBlog.conclusion,
           });
 
-          console.log(fetchedBlog);
-
           setContent(fetchedBlog.content);
         } else {
           console.error("Failed to fetch blog:", response.data.message);
@@ -79,9 +78,8 @@ const EditServicePage = () => {
       topic: data.topic,
       img: updatedImg,
       conclusion: data.conclusion,
+      createdDate: data.createdDate,
     };
-
-    console.log(blogData);
 
     try {
       const res = await axios.patch(
@@ -111,19 +109,19 @@ const EditServicePage = () => {
     <div>
       <h1 className="text-2xl md:text-4xl font-medium">Edit Service</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="mt-5 w-full">
-        <div className="mb-4 w-full">
-          <label htmlFor="name" className="block text-sm font-medium mb-2">
-            Blog Title
-          </label>
-          <input
-            type="text"
-            {...register("title")}
-            placeholder="Enter blog title"
-            className="w-full py-3"
-          />
-        </div>
-
         <div className="flex w-full gap-2">
+          <div className="mb-4 w-full">
+            <label htmlFor="name" className="block text-sm font-medium mb-2">
+              Blog Title
+            </label>
+            <input
+              type="text"
+              {...register("title")}
+              placeholder="Enter blog title"
+              className="w-full py-3"
+            />
+          </div>
+
           <div className="mb-4 w-full">
             <label htmlFor="name" className="block text-sm font-medium mb-2">
               Blog Topic
@@ -135,7 +133,9 @@ const EditServicePage = () => {
               className="w-full py-3"
             />
           </div>
+        </div>
 
+        <div className="flex w-full gap-2">
           <div className="mb-4 w-full">
             <label htmlFor="blogImg" className="block text-sm font-medium mb-2">
               Blog Image
@@ -149,6 +149,17 @@ const EditServicePage = () => {
             <span className="text-xs text-gray-500">
               Max size: 500KB, accepted formats: jpg, jpeg, png
             </span>
+          </div>
+
+          <div className="mb-4 w-full">
+            <label htmlFor="name" className="block text-sm font-medium mb-2">
+              Update createdDate
+            </label>
+            <input
+              type="date"
+              {...register("createdDate")}
+              className="w-full py-3"
+            />
           </div>
         </div>
 

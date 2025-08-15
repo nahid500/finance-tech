@@ -4,19 +4,6 @@ import { formatDateToYMD } from "@/utils/formateData";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const newsletterData = [
-  {
-    _id: 1,
-    email: "jhon@doe.com",
-    date: "2023-10-01",
-  },
-  {
-    _id: 2,
-    email: "test@gmail.com",
-    date: "2023-10-02",
-  },
-];
-
 const NewsletterPage = () => {
   const [newsletter, setNewsletter] = useState([]);
 
@@ -38,8 +25,6 @@ const NewsletterPage = () => {
 
     getNewsletterData();
   }, []);
-
-  console.log(newsletter);
 
   return (
     <div>

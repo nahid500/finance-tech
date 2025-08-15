@@ -1,31 +1,18 @@
 "use client";
 
-import Image from "next/image";
+import { useGetAllServiceQuery } from "@/redux/api/serviceApi";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import Image from "next/image";
+import Loading from "./ui/Loading";
 
 export default function Services() {
-  const [services, setServices] = useState([]);
+  const { data, isLoading } = useGetAllServiceQuery({});
 
-  useEffect(() => {
-    const getServiceData = async () => {
-      try {
-        const response = await axios.get(
-          "https://jakaria-finance-backend.vercel.app/api/v1/services"
-        );
+  if (isLoading) {
+    return <Loading />;
+  }
 
-        if (response.data?.success) {
-          setServices(response.data.data);
-        }
-      } catch (error) {
-        console.error("Error fetching services:", error.message);
-        console.log(error);
-      }
-    };
-
-    getServiceData();
-  }, []);
+  const services = data?.data || [];
 
   return (
     <div id="services" className="scroll-mt-36">
@@ -66,13 +53,21 @@ export default function Services() {
                 />
               </div>
 
-              <div className="flex flex-col items-center justify-center text-center px-6">
-                <h2 className="text-purple-600 font-bold text-2xl">
-                  {index + 1}. {service.title}
-                </h2>
-                <p className="text-blue-600 text-xl pt-6 px-2">
-                  {service.description}
-                </p>
+              <div className="flex flex-col items-center justify-center px-6 ">
+                <div className="text-center">
+                  <h2 className="text-purple-600 font-bold text-2xl">
+                    {index + 1}. {service.title}
+                  </h2>
+                  <p className="text-blue-600 text-xl pt-6 px-2">
+                    {service.description}
+                  </p>
+                </div>
+                <ul className="list-disc text-lg space-y-3 pt-2 text-blue-600 w-full text-start mt-4">
+                  {service?.features?.map((item, index) => {
+                    console.log(item);
+                    return <li key={index}>{item}</li>;
+                  })}
+                </ul>
               </div>
             </div>
             {/* {index === 1 && (

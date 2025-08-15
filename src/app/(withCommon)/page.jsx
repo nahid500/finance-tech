@@ -15,45 +15,46 @@ import TradingViewWidget from "@/components/widgets/TradingViewWidget";
 import TradingWidget from "@/components/widgets/TradingWidget";
 import Crypto from "@/components/widgets/Crypto";
 import Trading from "@/components/widgets/Trading";
+import BlogHome from "@/components/BlogHome";
 
 export default function Home() {
   return (
     <div className="overflow-hidden">
-
       <HeroSection />
 
-      <TradingViewWidget/>
+      <TradingViewWidget />
 
       <About />
 
-      <Achievments/>
+      <Achievments />
 
       <WhyUs />
 
-      <TradingWidget/>
+      <TradingWidget />
 
       <Services />
-      
+
       <AdditionalServices />
 
-      <ChatWidget/>
+      <ChatWidget />
 
       <Speech />
 
-      <Crypto/>
+      <Crypto />
 
       <Learning />
 
-      <Reviews/>
+      <Reviews />
 
-      <Trading/>
+      <Trading />
 
       {/* <NewsWidget/> */}
+
+      <BlogHome />
 
       <FAQ />
 
       <Footer />
-
     </div>
   );
 }
