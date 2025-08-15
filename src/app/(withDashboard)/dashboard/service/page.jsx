@@ -1,42 +1,29 @@
 "use client";
 
-import axios from "axios";
+import Loading from "@/components/ui/Loading";
+import {
+  useDeleteServiceMutation,
+  useGetAllServiceQuery,
+} from "@/redux/api/serviceApi";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 const DashboardServices = () => {
-  const [services, setServices] = useState([]);
+  const { data, isLoading } = useGetAllServiceQuery({});
+  const [deleteService] = useDeleteServiceMutation();
 
-  useEffect(() => {
-    const getServiceData = async () => {
-      try {
-        const response = await axios.get(
-          "https://jakaria-finance-backend.vercel.app/api/v1/services"
-        );
+  if (isLoading) {
+    return <Loading />;
+  }
 
-        if (response.data?.success) {
-          setServices(response.data.data);
-        }
-      } catch (error) {
-        console.error("Error fetching services:", error.message);
-        console.log(error);
-      }
-    };
-
-    getServiceData();
-  }, []);
+  const services = data?.data || [];
 
   const handleDelete = async (id) => {
     const toastId = toast.loading("Deleting service...");
     try {
-      const res = await axios.delete(
-        `https://jakaria-finance-backend.vercel.app/api/v1/services/${id}`
-      );
-
-      if (res.data.success) {
-        setServices((prev) => prev.filter((service) => service._id !== id));
+      const res = await deleteService(id).unwrap();
+      if (res?.success) {
         toast.success("Service deleted successfully", { id: toastId });
       }
     } catch (err) {

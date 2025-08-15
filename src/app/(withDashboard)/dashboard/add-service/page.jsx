@@ -1,43 +1,38 @@
 "use client";
 
+import { useCreateServiceMutation } from "@/redux/api/serviceApi";
 import convertImgToBase64 from "@/utils/convertToBase64";
-import axios from "axios";
 import { useRouter } from "next/navigation";
-import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
 const AddServicePage = () => {
+  const [createServices] = useCreateServiceMutation();
   const { register, handleSubmit } = useForm();
   const router = useRouter();
 
   const onSubmit = async (data) => {
     const toastId = toast.loading("Adding service...");
+
     const base64Img = await convertImgToBase64(data.img[0]);
+
     const serviceData = {
       title: data.title,
       description: data.description,
       img: base64Img,
+      features: data.features.split("||").map((feature) => feature.trim()),
     };
 
     try {
-      const res = await axios.post(
-        "https://jakaria-finance-backend.vercel.app/api/v1/services",
+      const res = await createServices(serviceData).unwrap();
 
-        serviceData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (res.data.success) {
+      if (res?.success) {
+        toast.success("Service added successfully", { id: toastId });
         router.push("/dashboard/service");
-        toast.success(res.data.message, { id: toastId });
       }
     } catch (err) {
-      console.error("❌ Submission error:", err.response?.data || err.message);
+      console.log(err);
+      toast.error("Failed to add service", { id: toastId });
     }
   };
 
@@ -46,7 +41,7 @@ const AddServicePage = () => {
       <h1 className="text-2xl md:text-4xl font-medium">Add Service</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="mt-5 w-full">
         <div className="flex w-full gap-2">
-          <div className="mb-4 w-full">
+          <div className="mb-2 w-full">
             <label htmlFor="name" className="block text-sm font-medium mb-2">
               Service Title
             </label>
@@ -58,7 +53,7 @@ const AddServicePage = () => {
             />
           </div>
 
-          <div className="mb-4 w-full">
+          <div className="mb-2 w-full">
             <label
               htmlFor="serviceImage"
               className="block text-sm font-medium mb-2"
@@ -75,6 +70,18 @@ const AddServicePage = () => {
               Max size: 500KB, accepted formats: jpg, jpeg, png
             </span>
           </div>
+        </div>
+
+        <div className="mb-4 w-full">
+          <label htmlFor="name" className="block text-sm font-medium mb-2">
+            Service Features
+          </label>
+          <input
+            type="text"
+            {...register("features")}
+            placeholder="Enter service features ( separated by || )"
+            className="w-full py-3"
+          />
         </div>
 
         <div className="mb-4">

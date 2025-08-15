@@ -1,83 +1,74 @@
 "use client";
 
+import Loading from "@/components/ui/Loading";
+import {
+  useGetSingleServiceQuery,
+  useUpdateServiceMutation,
+} from "@/redux/api/serviceApi";
 import convertImgToBase64 from "@/utils/convertToBase64";
-import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
 const EditServicePage = () => {
-  const [service, setService] = useState(null);
   const { id } = useParams();
+  const { data, isLoading } = useGetSingleServiceQuery(id);
+  const [updateService] = useUpdateServiceMutation();
+
+  const serviceData = data?.data;
 
   const { register, handleSubmit, reset } = useForm({
     defaultValues: {
-      title: service?.title,
-      description: service?.description,
-      img: null,
+      title: serviceData?.title || "",
+      description: serviceData?.description || "",
+      features: Array.isArray(serviceData?.features)
+        ? serviceData.features.join(" || ")
+        : "",
+      img: serviceData?.img || null,
     },
   });
 
   useEffect(() => {
-    const getServiceData = async () => {
-      try {
-        const response = await axios.get(
-          `https://jakaria-finance-backend.vercel.app/api/v1/services/${id}`
-        );
-
-        if (response.data?.success) {
-          const fetchedService = response.data.data;
-          setService(fetchedService);
-
-          reset({
-            title: fetchedService.title,
-            description: fetchedService.description,
-            img: null, // Keep this null for file input
-          });
-        } else {
-          console.error("Failed to fetch service:", response.data.message);
-        }
-      } catch (error) {
-        console.error("Error fetching service:", error.message);
-      }
-    };
-
-    getServiceData();
-  }, [id, reset]);
+    if (serviceData) {
+      reset({
+        title: serviceData.title || "",
+        description: serviceData.description || "",
+        features: Array.isArray(serviceData.features)
+          ? serviceData.features.join(" || ")
+          : "",
+        img: serviceData.img || null,
+      });
+    }
+  }, [serviceData, reset]);
 
   const router = useRouter();
 
+  if (isLoading) {
+    return <Loading />;
+  }
+
   const onSubmit = async (data) => {
     const toastId = toast.loading("Updating service...");
-    let updatedImg = service?.img;
+    let updatedImg = serviceData?.img;
 
-    if (data.img && data.img.length > 0) {
+    if (data.img && data.img.length > 0 && data.img[0] instanceof Blob) {
       updatedImg = await convertImgToBase64(data.img[0]);
     }
-    const serviceData = {
+    const updatedData = {
       title: data.title,
       description: data.description,
       img: updatedImg,
+      features: data.features.split("||").map((feature) => feature.trim()),
     };
 
     try {
-      const res = await axios.patch(
-        `https://jakaria-finance-backend.vercel.app/api/v1/services/${id}`,
-        serviceData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await updateService({ id, data: updatedData }).unwrap();
 
-      if (res.data.success) {
+      if (res?.success) {
         toast.success("Service updated successfully", { id: toastId });
         reset();
         router.push("/dashboard/service");
-      } else {
-        toast.error("Failed to update service", { id: toastId });
       }
     } catch (err) {
       console.error("❌ Submission error:", err.response?.data || err.message);
@@ -119,6 +110,18 @@ const EditServicePage = () => {
               Max size: 500KB, accepted formats: jpg, jpeg, png
             </span>
           </div>
+        </div>
+
+        <div className="mb-4 w-full">
+          <label htmlFor="name" className="block text-sm font-medium mb-2">
+            Service Features
+          </label>
+          <input
+            type="text"
+            {...register("features")}
+            placeholder="Enter service features ( separated by commas )"
+            className="w-full py-3"
+          />
         </div>
 
         <div className="mb-4">
