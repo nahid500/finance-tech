@@ -25,8 +25,8 @@ export default function Blogs() {
   const blogs = data?.data?.blogs;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-      <div className="mt-10">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 ">
+      <div className="mt-16">
         <h1 className="text-center text-2xl font-bold ">Welcome to My Blogs</h1>
         <p className="text-center text-gray-600 mb-8">
           Explore my latest articles and insights on various topics. Click on
@@ -36,13 +36,13 @@ export default function Blogs() {
 
       <hr className="my-10" />
 
-      <div className="mb-4">
+      <div className="mb-4 flex justify-center items-center">
         <div className="relative">
           <input
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10 w-[600px]"
+            className="pl-10 w-full md:w-[600px]"
             placeholder="Search blogs..."
           />
           <Search size={22} className="absolute top-2.5 left-2 text-zinc-400" />

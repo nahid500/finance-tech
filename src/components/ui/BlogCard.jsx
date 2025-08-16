@@ -2,13 +2,8 @@ import { formatDateToYMD } from "@/utils/formateData";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import DOMPurify from "dompurify";
-import htmlTruncate from "html-truncate";
 
 const BlogCard = ({ blog }) => {
-  const truncatedHTML = htmlTruncate(blog.content, 200);
-
   return (
     <div className=" mx-auto py-4 " key={blog._id}>
       <div className="overflow-hidden flex flex-col md:flex-row bg-white rounded-lg shadow-md h-[450px] border group hover:shadow-xl transition-shadow duration-300 ">
@@ -39,12 +34,7 @@ const BlogCard = ({ blog }) => {
             </Link>
 
             {/* Description */}
-            <div
-              dangerouslySetInnerHTML={{
-                __html: truncatedHTML,
-              }}
-              className="text-gray-700 mb-4"
-            ></div>
+            <p className="text-zinc-600">{blog.conclusion.slice(1, 400)}...</p>
           </div>
 
           {/* Bottom section - Date and CTA */}

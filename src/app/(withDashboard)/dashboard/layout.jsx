@@ -31,11 +31,11 @@ const DashboardLayout = ({ children }) => {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <div className="grid grid-cols-12 ">
-      <div className="col-span-2">
+    <div className="w-full flex ">
+      <div className="w-1/5">
         <Sidebar />
       </div>
-      <div className="col-span-10 mx-10 mt-10 ">{children}</div>
+      <div className="w-4/5 mx-10 mt-10 mb-5">{children}</div>
     </div>
   );
 };

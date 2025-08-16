@@ -41,7 +41,7 @@ const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="bg-gray-50 h-screen border-r border-gray-400">
+    <div className="bg-gray-50 h-screen border-r border-gray-400 fixed w-1/5">
       <div className="text-center py-4 border-b border-gray-400 ">
         <Link href={"/"} className="cursor-pointer">
           <h1 className="text-xl md:text-3xl font-bold ">

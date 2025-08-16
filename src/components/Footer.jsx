@@ -1,12 +1,9 @@
 "use client";
+
 import React from "react";
 import axios from "axios";
 import { FaTelegramPlane } from "react-icons/fa";
-import {
-  Linkedin,
-  MessageCircle,
-  MessageSquareMore,
-} from "lucide-react";
+import { Linkedin, MessageCircle, MessageSquareMore } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 
@@ -39,13 +36,15 @@ export const Footer = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true }}
-      className="bg-gray-900 text-white py-10"
+      className=" text-white py-10 footer"
     >
       <div id="footer" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Newsletter */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Subscribe to our Newsletter</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              Subscribe to our Newsletter
+            </h3>
             <form
               onSubmit={handleSubscribe}
               className="flex flex-col sm:flex-row gap-3"
@@ -115,7 +114,6 @@ export const Footer = () => {
                 </a>
               </li>
             </ul>
-
           </div>
 
           {/* About Section */}
@@ -123,11 +121,13 @@ export const Footer = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">About</h3>
               <p className="text-sm text-gray-400">
-                Empowering businesses through data-driven strategies and insightful analytics.
+                Empowering businesses through data-driven strategies and
+                insightful analytics.
               </p>
             </div>
             <p className="text-xs text-gray-500 mt-6">
-              &copy; {new Date().getFullYear()} Jakaria Inc. All rights reserved.
+              &copy; {new Date().getFullYear()} Jakaria Inc. All rights
+              reserved.
             </p>
           </div>
         </div>

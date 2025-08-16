@@ -22,7 +22,6 @@ const DashboardBlogPage = () => {
   const blogs = data?.data?.blogs;
   const totalPages = data?.data?.meta?.totalPages;
 
-  console.log(totalPages);
   if (isLoading) {
     return <Loading />;
   }
