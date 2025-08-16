@@ -77,7 +77,7 @@ const EditServicePage = () => {
   };
 
   return (
-    <div>
+    <div className="my-4">
       <h1 className="text-2xl md:text-4xl font-medium">Edit Service</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="mt-5 w-full">
         <div className="flex w-full gap-2">

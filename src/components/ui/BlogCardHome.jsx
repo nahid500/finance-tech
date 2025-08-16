@@ -1,12 +1,10 @@
 "use client";
 
-import { formatDateToYMD } from "@/utils/formateData";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 const BlogCardHome = ({ blog }) => {
-  const { title, img, createdDate, topic, _id } = blog;
+  const { title, img, createdDate, topic, _id, conclusion } = blog;
 
   return (
     <div className="bg-white rounded-md shadow-sm overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col border">
@@ -29,9 +27,7 @@ const BlogCardHome = ({ blog }) => {
         <h3 className="text-lg md:text-xl font-semibold mb-2 line-clamp-2">
           {title}
         </h3>
-        <p className="text-gray-500 text-sm mb-4">
-          {formatDateToYMD(createdDate)}
-        </p>
+        <p>{conclusion.slice(0, 100)}...</p>
 
         {/* Spacer */}
         <div className="flex-grow"></div>
@@ -39,7 +35,7 @@ const BlogCardHome = ({ blog }) => {
         {/* Read more */}
         <Link
           href={`/blogs/${_id}`}
-          className="mt-auto inline-block bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white text-sm font-medium px-4 py-3 rounded-md text-center transition-colors duration-300"
+          className="mt-4 inline-block bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white text-sm font-medium px-4 py-3 rounded-md text-center transition-colors duration-300"
         >
           Read more
         </Link>

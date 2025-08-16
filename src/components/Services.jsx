@@ -64,7 +64,6 @@ export default function Services() {
                 </div>
                 <ul className="list-disc text-lg space-y-3 pt-2 text-blue-600 w-full text-start mt-4">
                   {service?.features?.map((item, index) => {
-                    console.log(item);
                     return <li key={index}>{item}</li>;
                   })}
                 </ul>

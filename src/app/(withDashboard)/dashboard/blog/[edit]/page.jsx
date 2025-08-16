@@ -107,7 +107,7 @@ const EditServicePage = () => {
 
   return (
     <div>
-      <h1 className="text-2xl md:text-4xl font-medium">Edit Service</h1>
+      <h1 className="text-2xl md:text-4xl font-medium">Edit Blogs</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="mt-5 w-full">
         <div className="flex w-full gap-2">
           <div className="mb-4 w-full">

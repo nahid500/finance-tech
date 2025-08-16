@@ -1,21 +1,20 @@
 import About from "@/components/About";
-import HeroSection from "@/components/HeroSection";
-import Services from "@/components/Services";
-import WhyUs from "@/components/WhyUs";
-import NewsWidget from "@/components/widgets/NewsWidget";
-import Speech from "@/components/Speech";
-import { Learning } from "@/components/Learning";
-import { Footer } from "@/components/Footer";
-import FAQ from "@/components/Faq";
-import ChatWidget from "@/components/widgets/ChatWidget";
-import AdditionalServices from "@/components/AdditionalServices";
 import Achievments from "@/components/Achievments";
+import AdditionalServices from "@/components/AdditionalServices";
+import BlogHome from "@/components/BlogHome";
+import FAQ from "@/components/Faq";
+import { Footer } from "@/components/Footer";
+import HeroSection from "@/components/HeroSection";
+import { Learning } from "@/components/Learning";
 import Reviews from "@/components/Reviews";
-import TradingViewWidget from "@/components/widgets/TradingViewWidget";
-import TradingWidget from "@/components/widgets/TradingWidget";
+import Services from "@/components/Services";
+import Speech from "@/components/Speech";
+import WhyUs from "@/components/WhyUs";
+import ChatWidget from "@/components/widgets/ChatWidget";
 import Crypto from "@/components/widgets/Crypto";
 import Trading from "@/components/widgets/Trading";
-import BlogHome from "@/components/BlogHome";
+import TradingViewWidget from "@/components/widgets/TradingViewWidget";
+import TradingWidget from "@/components/widgets/TradingWidget";
 
 export default function Home() {
   return (

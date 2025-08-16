@@ -4,7 +4,7 @@ import { ContactButton } from "@/components/ContactButton";
 import Loading from "@/components/ui/Loading";
 import { useGetAllBlogQuery, useGetSingleBlogQuery } from "@/redux/api/blogApi";
 import { formatDateToYMD } from "@/utils/formateData";
-import { Check, House } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, House } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -25,8 +25,6 @@ const SingleBlogPage = () => {
   const sortedBlogs = [...allBlogData].sort(
     (a, b) => new Date(a.createdDate) + new Date(b.createdDate)
   );
-
-  console.log(sortedBlogs);
 
   const currentIndex = sortedBlogs.findIndex((item) => item._id === blog._id);
   const prevBlog = sortedBlogs[currentIndex - 1] || null;
@@ -79,12 +77,13 @@ const SingleBlogPage = () => {
         </div>
 
         {/* Prev & Next buttons */}
-        <div className="flex justify-between items-center mt-6">
+        <div className="flex justify-between items-center mt-6 gap-2">
           {prevBlog ? (
             <Link
               href={`/blogs/${prevBlog._id}`}
-              className="py-2 px-4 border border-zinc-500 rounded-md bg-gray-100 hover:bg-gray-200 w-full max-w-[400px] text-center"
+              className="py-2 px-4 border border-zinc-500 rounded-md bg-gray-100 hover:bg-gray-200 w-full max-w-[400px] text-center flex items-center justify-center gap-2"
             >
+              <ArrowLeft className="text-zinc-600" />
               Previous
             </Link>
           ) : (
@@ -93,9 +92,10 @@ const SingleBlogPage = () => {
           {nextBlog ? (
             <Link
               href={`/blogs/${nextBlog._id}`}
-              className="py-2 px-4 border border-zinc-500 rounded-md bg-gray-100 hover:bg-gray-200 w-full max-w-[400px] text-center"
+              className="py-2 px-4 border border-zinc-500 rounded-md bg-gray-100 hover:bg-gray-200 w-full max-w-[400px] text-center flex items-center justify-center gap-2"
             >
               Next
+              <ArrowRight className="text-zinc-600" />
             </Link>
           ) : (
             <span className="w-full max-w-[400px]" />
