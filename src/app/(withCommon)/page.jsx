@@ -15,6 +15,7 @@ import Crypto from "@/components/widgets/Crypto";
 import Trading from "@/components/widgets/Trading";
 import TradingViewWidget from "@/components/widgets/TradingViewWidget";
 import TradingWidget from "@/components/widgets/TradingWidget";
+import LiveMarketData from "../../components/LiveMarketData";
 
 export default function Home() {
   return (
@@ -38,6 +39,8 @@ export default function Home() {
       <ChatWidget />
 
       <Speech />
+
+      <LiveMarketData/>
 
       <Crypto />
 

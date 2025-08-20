@@ -52,7 +52,7 @@ const NavBar = () => {
         }
       `}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-">
         <div className="flex justify-between items-center h-16 relative">
           <Image
             src={logo}
@@ -63,7 +63,7 @@ const NavBar = () => {
           />
 
           {/* Desktop Links */}
-          <nav className="hidden md:flex items-center space-x-4 lg:space-x-8">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
             {links.map((link) => (
               <a
                 key={link.name}
@@ -75,10 +75,10 @@ const NavBar = () => {
               </a>
             ))}
             {/* Contact Button */}
-            <div className="md:pl-8">
+            <div className="hidden md:flex md:pl-8">
               <ContactButton />
             </div>
-          </nav>
+          </div>
 
           {/* Contact Button Mobile */}
           <div className="md:hidden flex-shrink-0">

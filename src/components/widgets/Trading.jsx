@@ -2,71 +2,42 @@
 
 import React, { useEffect, useRef, memo } from "react";
 
-function TradingViewWidget() {
-  const container = useRef();
-
+function Trading() {
+  const containerRef = useRef(null);
   useEffect(() => {
-    if (!container.current) return;
+    const container = containerRef.current;
+    if (!container) return;
+
+    container.innerHTML = ""; // cleanup
 
     const script = document.createElement("script");
-    script.src =
-      "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js";
+    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js";
     script.type = "text/javascript";
     script.async = true;
+
     script.textContent = JSON.stringify({
-      lineWidth: 2,
-      lineType: 0,
-      chartType: "area",
-      fontColor: "rgb(106, 109, 120)",
-      gridLineColor: "rgba(46, 46, 46, 0.06)",
-      volumeUpColor: "rgba(34, 171, 148, 0.5)",
-      volumeDownColor: "rgba(247, 82, 95, 0.5)",
-      backgroundColor: "#ffffff",
-      widgetFontColor: "#0F0F0F",
-      upColor: "#22ab94",
-      downColor: "#f7525f",
-      borderUpColor: "#22ab94",
-      borderDownColor: "#f7525f",
-      wickUpColor: "#22ab94",
-      wickDownColor: "#f7525f",
-      colorTheme: "light",
-      isTransparent: false,
-      locale: "en",
-      chartOnly: false,
-      scalePosition: "right",
-      scaleMode: "Normal",
-      fontFamily:
-        "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-      valuesTracking: "1",
-      changeMode: "price-and-percent",
       symbols: [
         ["Apple", "AAPL|1D"],
         ["Google", "GOOGL|1D"],
-        ["Microsoft", "MSFT|1D"],
+        ["Microsoft", "MSFT|1D"]
       ],
-      dateRanges: ["1d|1", "1m|30", "3m|60", "12m|1D", "60m|1W", "all|1M"],
-      fontSize: "10",
-      headerFontSize: "medium",
+      chartType: "area",
+      colorTheme: "light",
       autosize: true,
-      width: "100%",
-      height: "80%",
-      noTimeScale: false,
-      hideDateRanges: false,
-      hideMarketStatus: false,
-      hideSymbolLogo: false,
+      locale: "en"
     });
 
-    container.current.appendChild(script);
+    container.appendChild(script);
 
     return () => {
-      container.current.textContent = "";
+      container.innerHTML = "";
     };
   }, []);
 
   return (
-    <div className="w-full h-screen md:px-24" ref={container}>
-      <div className="tradingview-widget-container__widget w-full " />
-      <div className="tradingview-widget-copyright text-center text-sm mt-2">
+    <div className="w-full h-screen md:px-24">
+      <div ref={containerRef} className="tradingview-widget-container__widget w-full h-full" />
+      <div className="text-center text-sm mt-2">
         <a
           href="https://www.tradingview.com/"
           rel="noopener nofollow"
@@ -81,4 +52,4 @@ function TradingViewWidget() {
   );
 }
 
-export default memo(TradingViewWidget);
+export default memo(Trading);
