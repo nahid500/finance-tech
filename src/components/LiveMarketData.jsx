@@ -153,62 +153,7 @@ export default function LiveMarketData() {
       bgColor: "from-cyan-400 to-blue-600",
       image: "https://readdy.ai/api/search-image?query=GameFi%20development%20team%20creating%20blockchain%20gaming%20ecosystem%2C%20play-to-earn%20game%20development%20office%2C%20NFT%20gaming%20platform%20launch%2C%20cryptocurrency%20gaming%20community%20celebration%2C%20blockchain%20game%20success%20story%2C%20gaming%20token%20ecosystem&width=400&height=250&seq=gamefi_success&orientation=landscape"
     },
-    {
-      href: "/success-stories/nftart-collective",
-      title: "NFTArt Collective",
-      subtitle: "NFT Marketplace Token",
-      testimonial: "Launched utility token for our NFT marketplace. Generated $4.8M trading volume in first month with organic community growth strategies.",
-      avatar: "DP",
-      name: "David Park",
-      role: "Art Director",
-      metric: "$4.8M",
-      description: "Trading Volume",
-      icon: "ri-palette-line",
-      bgColor: "from-orange-400 to-pink-600",
-      image: "https://readdy.ai/api/search-image?query=NFT%20art%20collective%20workspace%20with%20digital%20artists%20creating%20blockchain%20art%2C%20NFT%20marketplace%20development%20team%2C%20crypto%20art%20community%20building%2C%20digital%20collectibles%20success%20celebration%2C%20blockchain%20art%20gallery%20launch%20event&width=400&height=250&seq=nftart_success&orientation=landscape"
-    },
-    {
-      href: "/success-stories/ecotoken-initiative",
-      title: "EcoToken Initiative",
-      subtitle: "Green Token Launch",
-      testimonial: "Created carbon credit token ecosystem that raised $6.5M for environmental projects. Built sustainable community of 25K eco-conscious investors.",
-      avatar: "EB",
-      name: "Emma Brown",
-      role: "Sustainability Lead",
-      metric: "$6.5M",
-      description: "Green Funding",
-      icon: "ri-leaf-line",
-      bgColor: "from-green-500 to-emerald-600",
-      image: "https://readdy.ai/api/search-image?query=Sustainable%20blockchain%20project%20office%20with%20environmental%20team%20developing%20carbon%20credit%20tokens%2C%20green%20cryptocurrency%20initiative%2C%20eco-friendly%20blockchain%20development%2C%20renewable%20energy%20crypto%20mining%20setup%2C%20environmental%20impact%20celebration&width=400&height=250&seq=ecotoken_success&orientation=landscape"
-    },
-    {
-      href: "/success-stories/techstartup-token",
-      title: "TechStartup Token",
-      subtitle: "Startup Funding",
-      testimonial: "Raised $3.7M seed funding through token sale in 4 days. Maintained 100% equity ownership while securing growth capital for our AI platform.",
-      avatar: "KJ",
-      name: "Kevin Johnson",
-      role: "Startup Founder",
-      metric: "$3.7M",
-      description: "Seed Funding",
-      icon: "ri-rocket-line",
-      bgColor: "from-indigo-400 to-purple-600",
-      image: "https://readdy.ai/api/search-image?query=Technology%20startup%20team%20celebrating%20successful%20token%20launch%2C%20innovative%20tech%20company%20developing%20blockchain%20solutions%2C%20startup%20office%20with%20cryptocurrency%20integration%2C%20young%20entrepreneurs%20building%20crypto%20ecosystem%2C%20tech%20innovation%20success%20story&width=400&height=250&seq=techstartup_success&orientation=landscape"
-    },
-    {
-      href: "/success-stories/communitydao-builder",
-      title: "CommunityDAO Builder",
-      subtitle: "DAO & Community Token",
-      testimonial: "Built thriving DAO with 15K community members and governance token. Achieved organic growth with sustainable tokenomics and transparent operations.",
-      avatar: "MR",
-      name: "Maria Rivera",
-      role: "Community Lead",
-      metric: "15K",
-      description: "DAO Members",
-      icon: "ri-team-line",
-      bgColor: "from-teal-400 to-cyan-600",
-      image: "https://readdy.ai/api/search-image?query=DAO%20community%20building%20workspace%20with%20decentralized%20governance%20development%2C%20crypto%20community%20management%20team%2C%20blockchain%20voting%20system%20celebration%2C%20decentralized%20autonomous%20organization%20success%2C%20community%20token%20ecosystem%20building&width=400&height=250&seq=communitydao_success&orientation=landscape"
-    }
+    
   ];
 
   const nextStories = () => {
@@ -226,7 +171,7 @@ export default function LiveMarketData() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-teal-700 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-purple-700 via-purple-500 to-teal-700 relative overflow-hidden">
       {/* Animated background patterns */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-r from-teal-400 to-purple-500 rounded-full blur-3xl animate-pulse"></div>
@@ -254,9 +199,9 @@ export default function LiveMarketData() {
         </div>
 
         {/* Live Chart */}
-        <div className="mb-16 animate-slide-up">
+        <div className="mb-16 mb:px-12 animate-slide-up">
           <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
-            <h2 className="text-2xl font-bold text-white mb-6 font-[\'Montserrat\']">Market Trend Analysis</h2>
+            <h2 className="text-2xl font-bold text-white mb-6 text-center font-[\'Montserrat\']">Market Trend Analysis</h2>
             <div className="h-64">
               <SimpleAreaChart 
                 data={chartData} 
@@ -269,9 +214,8 @@ export default function LiveMarketData() {
           </div>
         </div>
 
-        {/* Data Statistics */}
+        {/* Data Statistics
         <div className="grid md:grid-cols-3 gap-8">
-          {/* 24h Volume */}
           <div className="group animate-slide-up-delay-1">
             <div className="bg-gradient-to-br from-green-500/20 to-emerald-600/20 backdrop-blur-lg rounded-2xl p-8 border border-green-400/30 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:bg-gradient-to-br hover:from-green-500/30 hover:to-emerald-600/30 cursor-pointer">
               <div className="flex items-center justify-between mb-4">
@@ -289,7 +233,6 @@ export default function LiveMarketData() {
             </div>
           </div>
 
-          {/* Market Cap */}
           <div className="group animate-slide-up-delay-2">
             <div className="bg-gradient-to-br from-blue-500/20 to-indigo-600/20 backdrop-blur-lg rounded-2xl p-8 border border-blue-400/30 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:bg-gradient-to-br hover:from-blue-500/30 hover:to-indigo-600/30 cursor-pointer">
               <div className="flex items-center justify-between mb-4">
@@ -307,7 +250,6 @@ export default function LiveMarketData() {
             </div>
           </div>
 
-          {/* Active Projects */}
           <div className="group animate-slide-up-delay-3">
             <div className="bg-gradient-to-br from-yellow-500/20 to-amber-600/20 backdrop-blur-lg rounded-2xl p-8 border border-yellow-400/30 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:bg-gradient-to-br hover:from-yellow-500/30 hover:to-amber-600/30 cursor-pointer">
               <div className="flex items-center justify-between mb-4">
@@ -324,11 +266,11 @@ export default function LiveMarketData() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Client Success Stories Section */}
         <div className="mt-24 animate-fade-in-up">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 px-6">
             <h2 className="text-4xl font-bold text-white mb-8 font-[\'Montserrat\'] tracking-tight">
               Client Success Stories
             </h2>
@@ -402,7 +344,7 @@ export default function LiveMarketData() {
             </div>
 
             {/* Pagination Indicators */}
-            <div className="flex justify-center mt-8 space-x-2">
+            {/* <div className="flex justify-center mt-8 space-x-2">
               {Array.from({ length: Math.ceil(successStories.length / 3) }).map((_, index) => (
                 <button
                   key={index}
@@ -415,10 +357,10 @@ export default function LiveMarketData() {
                 />
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Key Statistics */}
-          <div className="mt-16 bg-gradient-to-r from-purple-600/30 to-teal-600/30 backdrop-blur-lg rounded-3xl p-12 border border-white/20 shadow-2xl">
+          {/* <div className="mt-16 bg-gradient-to-r from-purple-600/30 to-teal-600/30 backdrop-blur-lg rounded-3xl p-12 border border-white/20 shadow-2xl">
             <div className="text-center mb-8">
               <h3 className="text-3xl font-bold text-white mb-4 font-[\'Montserrat\']">Our Impact in Numbers</h3>
               <p className="text-purple-200 font-[\'Poppins\'] text-lg">Transforming businesses through blockchain innovation and ICO excellence</p>
@@ -452,7 +394,7 @@ export default function LiveMarketData() {
                 <div className="text-4xl font-bold text-white mb-2 font-[\'Poppins\']">100%</div>
                 <div className="text-purple-200 font-[\'Poppins\']">Success Rate</div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Call to Action */}

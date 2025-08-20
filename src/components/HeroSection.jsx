@@ -29,10 +29,9 @@ export default function HeroSection() {
           aria-label="Contact us on WhatsApp"
         >
           <button
-            className="flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full px-4 py-2 mt-4"
+            className="flex items-center bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg px-4 py-4 mt-4"
           >
-            <FaWhatsapp size={32} className="text-lime-300" />
-            <p className="text-lime-300 text-sm font-semibold">Book a Free Consultation</p>
+            <p className="text-sm font-bold">Book a Free Consultation</p>
           </button>
         </a>
               </div>

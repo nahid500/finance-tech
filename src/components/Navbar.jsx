@@ -5,6 +5,7 @@ import logo from "@/assets/images/logo.png";
 import { ContactButton } from './ContactButton';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,7 +24,6 @@ const NavBar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
@@ -52,45 +52,53 @@ const NavBar = () => {
         }
       `}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-">
-        <div className="flex justify-between items-center h-16 relative">
-          <Image
-            src={logo}
-            alt="Logo"
-            width={128}
-            height={128}
-            className="object-contain"
-          />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center h-16 relative">
+          {/* Left: Logo */}
+          <div className="flex-shrink-0">
+            <Link href="/">
+              <Image
+                src={logo}
+                alt="Logo"
+                width={128}
+                height={128}
+                className="object-contain"
+              />
+            </Link>
+          </div>
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
+          {/* Center: Desktop Links */}
+          <nav className="hidden md:flex flex-1 justify-center space-x-8" role="navigation" aria-label="Main navigation">
             {links.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
+                onClick={() => setMenuOpen(false)}
                 className="relative text-white/90 hover:text-white px-3 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-white/10 backdrop-blur-sm group"
               >
                 <span className="relative z-10">{link.name}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </a>
             ))}
-            {/* Contact Button */}
-            <div className="hidden md:flex md:pl-8">
-              <ContactButton />
-            </div>
+          </nav>
+
+          {/* Right: Contact Button */}
+          <div className="hidden md:flex md:pl-8 flex-shrink-0">
+            <ContactButton />
           </div>
 
-          {/* Contact Button Mobile */}
+          {/* Mobile Contact Button */}
           <div className="md:hidden flex-shrink-0">
             <ContactButton />
           </div>
 
           {/* Mobile Toggle */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center ml-2">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="text-white hover:text-purple-300 focus:outline-none"
-              aria-label="Toggle menu"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
             >
               {menuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -100,7 +108,7 @@ const NavBar = () => {
         {/* Mobile Dropdown Menu */}
         {menuOpen && (
           <div className="fixed top-16 left-0 w-full h-[calc(100vh-64px)] bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 border-t border-white/10 md:hidden shadow-lg z-40 overflow-y-auto">
-            <nav className="flex flex-col px-4 py-3 space-y-2">
+            <nav className="flex flex-col px-4 py-3 space-y-2" role="navigation" aria-label="Mobile main navigation">
               {links.map((link) => (
                 <a
                   key={link.name}
