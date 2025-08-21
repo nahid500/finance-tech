@@ -17,6 +17,8 @@ import TradingViewWidget from "@/components/widgets/TradingViewWidget";
 import TradingWidget from "@/components/widgets/TradingWidget";
 import LiveMarketData from "../../components/LiveMarketData";
 import { Newsletter } from "@/components/Newsletter";
+import NewsWidget from "@/components/widgets/NewsWidget";
+import HeatMap from "@/components/widgets/HeatMap";
 
 export default function Home() {
   return (
@@ -31,7 +33,9 @@ export default function Home() {
 
       <WhyUs />
 
-      <TradingWidget />
+      {/* <TradingWidget /> */}
+
+      <HeatMap />
 
       <Services />
 
@@ -43,23 +47,24 @@ export default function Home() {
 
       <LiveMarketData/>
 
-      <Crypto />
+      {/* <Crypto /> */}
+
+      <Trading />
 
       <Learning />
 
       <Reviews />
 
-      <Trading />
-
       {/* <NewsWidget/> */}
-
-      <BlogHome />
 
       <FAQ />
 
-      {/* <Newsletter/> */}
+      <BlogHome />
+
+      <NewsWidget/>
 
       <Footer />
+      
     </div>
   );
 }
