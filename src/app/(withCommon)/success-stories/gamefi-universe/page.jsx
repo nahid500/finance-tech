@@ -27,13 +27,13 @@ export default function FinanceMaxCorpStory() {
               <i className="ri-money-dollar-circle-line text-white text-3xl"></i>
             </div>
             <div>
-              <h1 className="text-5xl font-bold text-white font-['Montserrat'] tracking-tight">FinanceMax Corp</h1>
+              <h1 className="text-5xl font-bold text-white font-['Montserrat'] tracking-tight">GameFi-Universe</h1>
               <p className="text-xl text-purple-200 font-['Poppins']">Investment Firm Success Story</p>
             </div>
           </div>
           <div className="text-4xl font-bold text-green-400 mb-4">190% Performance Boost</div>
           <p className="text-xl text-purple-200 font-['Poppins'] max-w-3xl mx-auto">
-            How FinanceMax Corp revolutionized their investment strategy and achieved consistent quarterly growth through predictive analytics
+            How GameFi-Universe revolutionized their investment strategy and achieved consistent quarterly growth through predictive analytics
           </p>
         </div>
 
@@ -41,7 +41,7 @@ export default function FinanceMaxCorpStory() {
         <div className="mb-16">
           <img 
             src="https://readdy.ai/api/search-image?query=Modern%20financial%20trading%20floor%20with%20multiple%20screens%20displaying%20market%20data%2C%20professional%20traders%20analyzing%20charts%2C%20sophisticated%20technology%20setup%2C%20contemporary%20office%20design%2C%20financial%20success%20environment%2C%20high-tech%20trading%20platform%20headquarters&width=1200&height=600&seq=financemax_hero&orientation=landscape"
-            alt="FinanceMax Corp Trading Floor"
+            alt="GameFi-Universe Trading Floor"
             className="w-full h-96 object-cover object-top rounded-3xl shadow-2xl"
           />
         </div>
@@ -54,7 +54,7 @@ export default function FinanceMaxCorpStory() {
               <h2 className="text-3xl font-bold text-white mb-6 font-['Montserrat']">Company Overview</h2>
               <div className="space-y-4 text-gray-200 font-['Poppins'] text-lg leading-relaxed">
                 <p>
-                  FinanceMax Corp, established in 2012, manages over $3.2 billion in assets for high-net-worth individuals and institutional investors. With a team of 85 investment professionals across New York and London, they specialize in quantitative trading and portfolio management.
+                  GameFi-Universe, established in 2012, manages over $3.2 billion in assets for high-net-worth individuals and institutional investors. With a team of 85 investment professionals across New York and London, they specialize in quantitative trading and portfolio management.
                 </p>
                 <p>
                   Despite their expertise and market knowledge, the firm struggled with inconsistent performance across their diverse portfolio. Traditional analysis methods were proving insufficient in the rapidly evolving financial markets, leading to missed opportunities and suboptimal risk management.
