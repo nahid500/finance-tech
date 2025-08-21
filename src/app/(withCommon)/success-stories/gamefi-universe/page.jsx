@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-export default function GreenTechInnovationsStory() {
+export default function FinanceMaxCorpStory() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-teal-700 relative overflow-hidden">
       {/* Animated background patterns */}
@@ -23,25 +23,25 @@ export default function GreenTechInnovationsStory() {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-8">
-            <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center mr-6">
-              <i className="ri-leaf-line text-white text-3xl"></i>
+            <div className="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-full flex items-center justify-center mr-6">
+              <i className="ri-money-dollar-circle-line text-white text-3xl"></i>
             </div>
             <div>
-              <h1 className="text-5xl font-bold text-white font-['Montserrat'] tracking-tight">GreenTech Innovations</h1>
-              <p className="text-xl text-purple-200 font-['Poppins']">Clean Energy Success Story</p>
+              <h1 className="text-5xl font-bold text-white font-['Montserrat'] tracking-tight">FinanceMax Corp</h1>
+              <p className="text-xl text-purple-200 font-['Poppins']">Investment Firm Success Story</p>
             </div>
           </div>
-          <div className="text-4xl font-bold text-green-400 mb-4">45% Cost Reduction</div>
+          <div className="text-4xl font-bold text-green-400 mb-4">190% Performance Boost</div>
           <p className="text-xl text-purple-200 font-['Poppins'] max-w-3xl mx-auto">
-            How GreenTech Innovations optimized their renewable energy portfolio and achieved unprecedented efficiency gains
+            How FinanceMax Corp revolutionized their investment strategy and achieved consistent quarterly growth through predictive analytics
           </p>
         </div>
 
         {/* Hero Image */}
         <div className="mb-16">
           <img 
-            src="https://readdy.ai/api/search-image?query=Sustainable%20energy%20company%20office%20with%20solar%20panels%20and%20green%20technology%2C%20eco-friendly%20workspace%2C%20renewable%20energy%20displays%2C%20modern%20environmental%20design%2C%20professional%20team%20working%20on%20sustainability%20projects%2C%20clean%20technology%20innovation%20headquarters&width=1200&height=600&seq=greentech_hero&orientation=landscape"
-            alt="GreenTech Innovations Facility"
+            src="https://readdy.ai/api/search-image?query=Modern%20financial%20trading%20floor%20with%20multiple%20screens%20displaying%20market%20data%2C%20professional%20traders%20analyzing%20charts%2C%20sophisticated%20technology%20setup%2C%20contemporary%20office%20design%2C%20financial%20success%20environment%2C%20high-tech%20trading%20platform%20headquarters&width=1200&height=600&seq=financemax_hero&orientation=landscape"
+            alt="FinanceMax Corp Trading Floor"
             className="w-full h-96 object-cover object-top rounded-3xl shadow-2xl"
           />
         </div>
@@ -54,10 +54,10 @@ export default function GreenTechInnovationsStory() {
               <h2 className="text-3xl font-bold text-white mb-6 font-['Montserrat']">Company Overview</h2>
               <div className="space-y-4 text-gray-200 font-['Poppins'] text-lg leading-relaxed">
                 <p>
-                  GreenTech Innovations has been at the forefront of renewable energy technology since 2016. Operating across 15 states with a portfolio of solar, wind, and hydroelectric projects, they manage over $850 million in clean energy assets.
+                  FinanceMax Corp, established in 2012, manages over $3.2 billion in assets for high-net-worth individuals and institutional investors. With a team of 85 investment professionals across New York and London, they specialize in quantitative trading and portfolio management.
                 </p>
                 <p>
-                  Despite their strong market position, the company faced challenges in optimizing their diverse energy portfolio. Fluctuating energy prices, weather dependencies, and complex grid management required sophisticated predictive analytics that their existing systems couldn't provide.
+                  Despite their expertise and market knowledge, the firm struggled with inconsistent performance across their diverse portfolio. Traditional analysis methods were proving insufficient in the rapidly evolving financial markets, leading to missed opportunities and suboptimal risk management.
                 </p>
               </div>
             </div>
@@ -67,7 +67,7 @@ export default function GreenTechInnovationsStory() {
               <h2 className="text-3xl font-bold text-white mb-6 font-['Montserrat']">The Challenge</h2>
               <div className="space-y-6">
                 <p className="text-gray-200 font-['Poppins'] text-lg leading-relaxed">
-                  GreenTech's energy production was highly variable, leading to significant inefficiencies and missed revenue opportunities:
+                  FinanceMax faced significant challenges in maintaining consistent performance across volatile markets:
                 </p>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-4">
@@ -75,19 +75,19 @@ export default function GreenTechInnovationsStory() {
                       <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center">
                         <i className="ri-close-line text-red-400"></i>
                       </div>
-                      <span className="text-gray-200 font-['Poppins']">Unpredictable energy output</span>
+                      <span className="text-gray-200 font-['Poppins']">Inconsistent portfolio performance</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center">
                         <i className="ri-close-line text-red-400"></i>
                       </div>
-                      <span className="text-gray-200 font-['Poppins']">High maintenance costs</span>
+                      <span className="text-gray-200 font-['Poppins']">Limited market prediction accuracy</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center">
                         <i className="ri-close-line text-red-400"></i>
                       </div>
-                      <span className="text-gray-200 font-['Poppins']">Grid balancing issues</span>
+                      <span className="text-gray-200 font-['Poppins']">High exposure to market volatility</span>
                     </div>
                   </div>
                   <div className="space-y-4">
@@ -95,19 +95,19 @@ export default function GreenTechInnovationsStory() {
                       <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center">
                         <i className="ri-close-line text-red-400"></i>
                       </div>
-                      <span className="text-gray-200 font-['Poppins']">Suboptimal resource allocation</span>
+                      <span className="text-gray-200 font-['Poppins']">Reactive investment decisions</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center">
                         <i className="ri-close-line text-red-400"></i>
                       </div>
-                      <span className="text-gray-200 font-['Poppins']">Limited predictive capabilities</span>
+                      <span className="text-gray-200 font-['Poppins']">Inadequate risk assessment</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center">
                         <i className="ri-close-line text-red-400"></i>
                       </div>
-                      <span className="text-gray-200 font-['Poppins']">Reactive maintenance approach</span>
+                      <span className="text-gray-200 font-['Poppins']">Client retention concerns</span>
                     </div>
                   </div>
                 </div>
@@ -119,7 +119,7 @@ export default function GreenTechInnovationsStory() {
               <h2 className="text-3xl font-bold text-white mb-6 font-['Montserrat']">Our Solution</h2>
               <div className="space-y-6">
                 <p className="text-gray-200 font-['Poppins'] text-lg leading-relaxed">
-                  We deployed an AI-powered energy optimization platform that integrates weather data, market prices, and equipment performance to maximize efficiency and revenue.
+                  We implemented a comprehensive predictive analytics platform that combines machine learning algorithms with real-time market data to optimize investment strategies and risk management.
                 </p>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-4">
@@ -127,19 +127,19 @@ export default function GreenTechInnovationsStory() {
                       <div className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                         <i className="ri-check-line text-green-400"></i>
                       </div>
-                      <span className="text-gray-200 font-['Poppins']">Weather prediction integration</span>
+                      <span className="text-gray-200 font-['Poppins']">AI-powered market prediction</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                         <i className="ri-check-line text-green-400"></i>
                       </div>
-                      <span className="text-gray-200 font-['Poppins']">Real-time performance monitoring</span>
+                      <span className="text-gray-200 font-['Poppins']">Real-time risk assessment</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                         <i className="ri-check-line text-green-400"></i>
                       </div>
-                      <span className="text-gray-200 font-['Poppins']">Predictive maintenance alerts</span>
+                      <span className="text-gray-200 font-['Poppins']">Automated portfolio rebalancing</span>
                     </div>
                   </div>
                   <div className="space-y-4">
@@ -147,70 +147,92 @@ export default function GreenTechInnovationsStory() {
                       <div className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                         <i className="ri-check-line text-green-400"></i>
                       </div>
-                      <span className="text-gray-200 font-['Poppins']">Energy trading optimization</span>
+                      <span className="text-gray-200 font-['Poppins']">Sentiment analysis integration</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                         <i className="ri-check-line text-green-400"></i>
                       </div>
-                      <span className="text-gray-200 font-['Poppins']">Grid balancing automation</span>
+                      <span className="text-gray-200 font-['Poppins']">Advanced backtesting tools</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
                         <i className="ri-check-line text-green-400"></i>
                       </div>
-                      <span className="text-gray-200 font-['Poppins']">Portfolio risk management</span>
+                      <span className="text-gray-200 font-['Poppins']">Client reporting automation</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Results & Impact */}
+            {/* Performance Metrics */}
             <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl">
-              <h2 className="text-3xl font-bold text-white mb-6 font-['Montserrat']">Results & Environmental Impact</h2>
+              <h2 className="text-3xl font-bold text-white mb-6 font-['Montserrat']">Performance Transformation</h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-4 font-['Montserrat']">Business Results</h3>
+                  <h3 className="text-xl font-bold text-white mb-4 font-['Montserrat']">Before Implementation</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-200 font-['Poppins']">Operational Cost Reduction</span>
-                      <span className="text-green-400 font-bold">45%</span>
+                      <span className="text-gray-200 font-['Poppins']">Annual Return</span>
+                      <span className="text-red-400 font-bold">8.2%</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-200 font-['Poppins']">Energy Efficiency Increase</span>
-                      <span className="text-green-400 font-bold">280%</span>
+                      <span className="text-gray-200 font-['Poppins']">Sharpe Ratio</span>
+                      <span className="text-red-400 font-bold">0.65</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-200 font-['Poppins']">Revenue Growth</span>
-                      <span className="text-green-400 font-bold">165%</span>
+                      <span className="text-gray-200 font-['Poppins']">Maximum Drawdown</span>
+                      <span className="text-red-400 font-bold">-18.5%</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-200 font-['Poppins']">Maintenance Cost Reduction</span>
-                      <span className="text-green-400 font-bold">60%</span>
+                      <span className="text-gray-200 font-['Poppins']">Win Rate</span>
+                      <span className="text-red-400 font-bold">52%</span>
                     </div>
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-4 font-['Montserrat']">Environmental Impact</h3>
+                  <h3 className="text-xl font-bold text-white mb-4 font-['Montserrat']">After Implementation</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-200 font-['Poppins']">CO2 Emissions Reduced</span>
-                      <span className="text-green-400 font-bold">2.1M tons</span>
+                      <span className="text-gray-200 font-['Poppins']">Annual Return</span>
+                      <span className="text-green-400 font-bold">23.8%</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-200 font-['Poppins']">Clean Energy Generated</span>
-                      <span className="text-green-400 font-bold">45 GWh</span>
+                      <span className="text-gray-200 font-['Poppins']">Sharpe Ratio</span>
+                      <span className="text-green-400 font-bold">1.89</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-200 font-['Poppins']">Homes Powered</span>
-                      <span className="text-green-400 font-bold">185,000</span>
+                      <span className="text-gray-200 font-['Poppins']">Maximum Drawdown</span>
+                      <span className="text-green-400 font-bold">-6.2%</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-200 font-['Poppins']">Water Saved</span>
-                      <span className="text-green-400 font-bold">850M gallons</span>
+                      <span className="text-gray-200 font-['Poppins']">Win Rate</span>
+                      <span className="text-green-400 font-bold">78%</span>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Client Impact */}
+            <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl">
+              <h2 className="text-3xl font-bold text-white mb-6 font-['Montserrat']">Client Success Stories</h2>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl p-6 border border-blue-400/30">
+                  <h4 className="text-lg font-bold text-white mb-2 font-['Montserrat']">Pension Fund Portfolio</h4>
+                  <p className="text-gray-200 font-['Poppins'] mb-3">$450M asset allocation optimization resulted in 15% outperformance vs. benchmark.</p>
+                  <div className="text-green-400 font-bold">+$67.5M additional returns</div>
+                </div>
+                <div className="bg-gradient-to-r from-green-500/20 to-teal-500/20 rounded-2xl p-6 border border-green-400/30">
+                  <h4 className="text-lg font-bold text-white mb-2 font-['Montserrat']">High Net Worth Individual</h4>
+                  <p className="text-gray-200 font-['Poppins'] mb-3">Dynamic risk management protected $25M portfolio during market volatility.</p>
+                  <div className="text-green-400 font-bold">-85% volatility vs. market</div>
+                </div>
+                <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-2xl p-6 border border-yellow-400/30">
+                  <h4 className="text-lg font-bold text-white mb-2 font-['Montserrat']">Corporate Treasury</h4>
+                  <p className="text-gray-200 font-['Poppins'] mb-3">Cash management optimization increased yield by 240 basis points annually.</p>
+                  <div className="text-green-400 font-bold">+$3.2M yearly income</div>
                 </div>
               </div>
             </div>
@@ -218,21 +240,21 @@ export default function GreenTechInnovationsStory() {
 
           {/* Sidebar */}
           <div className="space-y-8">
-            {/* CTO Testimonial */}
-            <div className="bg-gradient-to-br from-green-500/20 to-emerald-600/20 backdrop-blur-lg rounded-3xl p-8 border border-green-400/30 shadow-2xl">
+            {/* Portfolio Manager Testimonial */}
+            <div className="bg-gradient-to-br from-yellow-500/20 to-orange-600/20 backdrop-blur-lg rounded-3xl p-8 border border-yellow-400/30 shadow-2xl">
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-white font-bold text-xl">MC</span>
+                <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mr-4">
+                  <span className="text-white font-bold text-xl">DR</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white font-['Montserrat']">Maria Chen</h3>
-                  <p className="text-purple-200 font-['Poppins']">Chief Technology Officer</p>
+                  <h3 className="text-xl font-bold text-white font-['Montserrat']">David Rodriguez</h3>
+                  <p className="text-purple-200 font-['Poppins']">Portfolio Manager</p>
                 </div>
               </div>
               <blockquote className="text-gray-200 font-['Poppins'] italic text-lg leading-relaxed mb-4">
-                "The platform transformed how we approach renewable energy management. We're not just generating clean power more efficiently – we're pioneering the future of sustainable energy."
+                "The predictive analytics completely changed our investment approach. We're no longer chasing the market – we're anticipating it. Our clients have never been happier."
               </blockquote>
-              <div className="text-green-400 font-semibold">★★★★★ 5/5 Rating</div>
+              <div className="text-yellow-400 font-semibold">★★★★★ 5/5 Rating</div>
             </div>
 
             {/* Key Metrics */}
@@ -240,20 +262,20 @@ export default function GreenTechInnovationsStory() {
               <h3 className="text-2xl font-bold text-white mb-6 font-['Montserrat']">Key Results</h3>
               <div className="space-y-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-green-400 mb-2">45%</div>
-                  <div className="text-purple-200 font-['Poppins']">Cost Reduction</div>
+                  <div className="text-3xl font-bold text-green-400 mb-2">190%</div>
+                  <div className="text-purple-200 font-['Poppins']">Performance Boost</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-400 mb-2">280%</div>
-                  <div className="text-purple-200 font-['Poppins']">Efficiency Gain</div>
+                  <div className="text-3xl font-bold text-blue-400 mb-2">1.89</div>
+                  <div className="text-purple-200 font-['Poppins']">Sharpe Ratio</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-yellow-400 mb-2">2.1M</div>
-                  <div className="text-purple-200 font-['Poppins']">Tons CO2 Saved</div>
+                  <div className="text-3xl font-bold text-yellow-400 mb-2">78%</div>
+                  <div className="text-purple-200 font-['Poppins']">Win Rate</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-400 mb-2">185K</div>
-                  <div className="text-purple-200 font-['Poppins']">Homes Powered</div>
+                  <div className="text-3xl font-bold text-purple-400 mb-2">$850M</div>
+                  <div className="text-purple-200 font-['Poppins']">Additional Returns</div>
                 </div>
               </div>
             </div>
@@ -264,23 +286,23 @@ export default function GreenTechInnovationsStory() {
               <div className="space-y-4">
                 <div className="flex justify-between">
                   <span className="text-purple-200 font-['Poppins']">Industry:</span>
-                  <span className="text-white font-semibold">Clean Energy</span>
+                  <span className="text-white font-semibold">Investment Firm</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-purple-200 font-['Poppins']">Founded:</span>
-                  <span className="text-white font-semibold">2016</span>
+                  <span className="text-white font-semibold">2012</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-purple-200 font-['Poppins']">Employees:</span>
-                  <span className="text-white font-semibold">320+</span>
+                  <span className="text-white font-semibold">85+</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-purple-200 font-['Poppins']">Location:</span>
-                  <span className="text-white font-semibold">Austin, TX</span>
+                  <span className="text-white font-semibold">New York, NY</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-purple-200 font-['Poppins']">Assets:</span>
-                  <span className="text-white font-semibold">$850M+</span>
+                  <span className="text-purple-200 font-['Poppins']">AUM:</span>
+                  <span className="text-white font-semibold">$3.2B+</span>
                 </div>
               </div>
             </div>
@@ -289,15 +311,15 @@ export default function GreenTechInnovationsStory() {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <h2 className="text-3xl font-bold text-white mb-8 font-['Montserrat']">Ready to Optimize Your Energy Portfolio?</h2>
+          <h2 className="text-3xl font-bold text-white mb-8 font-['Montserrat']">Ready to Optimize Your Investment Performance?</h2>
           <div className="inline-flex items-center gap-4">
             <button className="bg-gradient-to-r from-teal-400 to-blue-500 hover:from-teal-500 hover:to-blue-600 text-white font-bold py-4 px-8 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-['Poppins'] whitespace-nowrap">
-              <i className="ri-leaf-line mr-2"></i>
-              Start Your Green Journey
+              <i className="ri-line-chart-line mr-2"></i>
+              Boost Your Returns
             </button>
             <button className="bg-white/10 hover:bg-white/20 text-white font-semibold py-4 px-8 rounded-full border border-white/30 hover:border-white/50 shadow-xl transition-all duration-300 backdrop-blur-lg font-['Poppins'] whitespace-nowrap">
               <i className="ri-phone-line mr-2"></i>
-              Schedule Consultation
+              Request Demo
             </button>
           </div>
         </div>
