@@ -4,6 +4,7 @@ import { useGetAllServiceQuery } from "@/redux/api/serviceApi";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Loading from "./ui/Loading";
+import { ArrowBigRightDash } from "lucide-react";
 
 export default function Services() {
   const { data, isLoading } = useGetAllServiceQuery({});
@@ -53,19 +54,22 @@ export default function Services() {
                 />
               </div>
 
-              <div className="flex flex-col items-center justify-center px-6 ">
-                <div className="text-center">
+              <div className="flex flex-col px-6 ">
+                <div className="text-">
                   <h2 className="text-purple-600 font-bold text-2xl">
                     {index + 1}. {service.title}
                   </h2>
-                  <p className="text-blue-600 text-xl pt-6 px-2">
+                  <p className="text-blue-600 text-xl pt-6">
                     {service.description}
                   </p>
                 </div>
-                <ul className="list-disc text-lg space-y-3 pt-2 text-blue-600 w-full text-start mt-4">
-                  {service?.features?.map((item, index) => {
-                    return <li key={index}>{item}</li>;
-                  })}
+                <ul className="list-disc grid grid-cols-2 pl-4 pt-2 text-blue-500 w-full text-start mt-4 gap-y-3 gap-x-4 text-lg">
+                  {service?.features?.map((item, index) => (
+                    <li key={index} className="flex items-center gap-2">
+                      <ArrowBigRightDash className="w-5 h-5 text-purple-600" />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
