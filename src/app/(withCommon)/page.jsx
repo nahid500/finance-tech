@@ -16,6 +16,7 @@ import Trading from "@/components/widgets/Trading";
 import TradingViewWidget from "@/components/widgets/TradingViewWidget";
 import TradingWidget from "@/components/widgets/TradingWidget";
 import LiveMarketData from "../../components/LiveMarketData";
+import { Newsletter } from "@/components/Newsletter";
 
 export default function Home() {
   return (
@@ -55,6 +56,8 @@ export default function Home() {
       <BlogHome />
 
       <FAQ />
+
+      {/* <Newsletter/> */}
 
       <Footer />
     </div>
