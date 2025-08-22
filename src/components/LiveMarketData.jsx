@@ -171,7 +171,7 @@ export default function LiveMarketData() {
   ];
 
   return (
-    <div id="portfolio" className="min-h-screen bg-gradient-to-br from-purple-700 via-purple-500 to-teal-700 relative overflow-hidden">
+    <div id="portfolio" className="min-h-screen scroll-mt-20 bg-gradient-to-br from-purple-700 via-purple-500 to-teal-700 relative overflow-hidden">
       {/* Animated background patterns */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-r from-teal-400 to-purple-500 rounded-full blur-3xl animate-pulse"></div>
@@ -402,11 +402,15 @@ export default function LiveMarketData() {
             <div className="inline-flex items-center gap-4">
               <button className="bg-gradient-to-r from-teal-400 to-blue-500 hover:from-teal-500 hover:to-blue-600 text-white font-bold py-4 px-8 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-[\'Poppins\'] whitespace-nowrap">
                 <i className="ri-rocket-line mr-2"></i>
-                Launch Your ICO Today
+                <a href ="https://wa.me/13148573244?text=Can%20you%20tell%20me%20more%20about%20your%20business">
+                  Launch Your ICO Today
+                </a>
               </button>
               <button className="bg-white/10 hover:bg-white/20 text-white font-semibold py-4 px-8 rounded-full border border-white/30 hover:border-white/50 shadow-xl transition-all duration-300 backdrop-blur-lg font-[\'Poppins\'] whitespace-nowrap">
                 <i className="ri-phone-line mr-2"></i>
-                Free Consultation
+                <a href ="https://wa.me/13148573244?text=Can%20you%20tell%20me%20more%20about%20your%20business">
+                  Free Consultation
+                </a>
               </button>
             </div>
           </div>

@@ -6,14 +6,12 @@ import { ContactButton } from './ContactButton';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-
+import { usePathname } from 'next/navigation';  // Better to use usePathname in app router
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-    const router = useRouter();
-
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,10 +21,6 @@ const NavBar = () => {
         setScrolled(false);
       }
     };
-
-      const handleClick = () => {
-    router.push('/#portfolio');
-  };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -51,14 +45,21 @@ const NavBar = () => {
     { name: 'Blogs', href: '/blogs' },
   ];
 
+  // Determine if current page is home
+  const isHome = pathname === '/';
+
+  // Calculate background classes
+  // On home: transparent when not scrolled or menu closed, otherwise dark gradient
+  // On other pages: always dark gradient (so links are visible)
+  const backgroundClass = isHome
+    ? (scrolled || menuOpen)
+      ? 'bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 backdrop-blur-lg border-b border-white/10 shadow-lg'
+      : 'bg-transparent'
+    : 'bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 backdrop-blur-lg border-b border-white/10 shadow-lg';
+
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
-        ${(scrolled || menuOpen)
-          ? 'bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 backdrop-blur-lg border-b border-white/10 shadow-lg'
-          : 'bg-transparent'
-        }
-      `}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${backgroundClass}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center h-16 relative">
