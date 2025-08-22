@@ -13,7 +13,7 @@ export default function FinanceMaxCorpStory() {
 
       <div className="relative z-10 container mx-auto px-6 py-12">
         {/* Navigation */}
-        <div className="mb-8 mt-6">
+        <div className="mb-8 mt-16">
           <Link href="/#portfolio" className="text-purple-200 hover:text-white transition-colors duration-300 flex items-center gap-2 font-['Poppins']">
             <i className="ri-arrow-left-line"></i>
             Back to Home

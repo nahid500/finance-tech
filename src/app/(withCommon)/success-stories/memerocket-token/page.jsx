@@ -14,7 +14,7 @@ export default function MemeRocketTokenStory() {
 
       <div className="relative z-10 container mx-auto px-6 py-12">
         {/* Elegant Navigation */}
-        <div className="mb-8 mt-6">
+        <div className="mb-8 mt-16">
           <Link href="/#portfolio" className="text-purple-200 hover:text-white transition-all duration-500 flex items-center gap-3 font-['Inter'] font-medium tracking-wide group">
             <i className="ri-arrow-left-line text-xl group-hover:transform group-hover:-translate-x-1 transition-transform duration-300"></i>
             <span className="relative">
