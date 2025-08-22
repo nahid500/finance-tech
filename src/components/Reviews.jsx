@@ -389,17 +389,22 @@ const reviews =
 
           {/* Pagination Dots */}
           <div className="flex justify-center gap-2 mt-6">
-            {reviews.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentReviewIndex(idx)}
-                className={`w-3 h-3 rounded-full ${
-                  idx === currentReviewIndex ? 'bg-black' : 'bg-gray-400'
-                }`}
-                aria-label={`Go to review ${idx + 1}`}
-              />
-            ))}
-          </div>
+  {reviews.map((_, idx) => {
+    const isVisible = Math.abs(currentReviewIndex - idx) <= 1;
+
+    return isVisible ? (
+      <button
+        key={idx}
+        onClick={() => setCurrentReviewIndex(idx)}
+        className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+          idx === currentReviewIndex ? 'bg-black' : 'bg-gray-400'
+        }`}
+        aria-label={`Go to review ${idx + 1}`}
+      />
+    ) : null;
+  })}
+</div>
+
         </div>
       )}
     </div>
