@@ -171,7 +171,7 @@ export default function LiveMarketData() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-700 via-purple-500 to-teal-700 relative overflow-hidden">
+    <div id="portfolio" className="min-h-screen bg-gradient-to-br from-purple-700 via-purple-500 to-teal-700 relative overflow-hidden">
       {/* Animated background patterns */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-r from-teal-400 to-purple-500 rounded-full blur-3xl animate-pulse"></div>

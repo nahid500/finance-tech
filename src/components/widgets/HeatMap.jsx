@@ -39,7 +39,7 @@ export default function HeatMap() {
   return (
     <div className="w-full px-4 py-8">
       <div className="overflow-x-auto flex">
-        <div className="min-w-[600px] mx-auto">
+        <div className="min-w-[1000px] mx-auto">
           <div className="tradingview-widget-container" ref={containerRef}>
             <div className="tradingview-widget-container__widget" />
             <div className="text-center text-sm mt-2 text-gray-500">

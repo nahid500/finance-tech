@@ -6,10 +6,14 @@ import { ContactButton } from './ContactButton';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+    const router = useRouter();
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +23,10 @@ const NavBar = () => {
         setScrolled(false);
       }
     };
+
+      const handleClick = () => {
+    router.push('/#portfolio');
+  };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -37,9 +45,9 @@ const NavBar = () => {
 
   const links = [
     { name: 'Home', href: '/' },
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Learning', href: '#learning' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Portfolio', href: '/#portfolio' },
+    { name: 'Learning', href: '/#learning' },
     { name: 'Blogs', href: '/blogs' },
   ];
 

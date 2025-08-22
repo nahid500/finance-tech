@@ -4,14 +4,14 @@ import { useState } from 'react';
 import linkedin from "@/assets/icons/linkedin.png";
 import google from "@/assets/icons/google.png";
 import trustpilot from "@/assets/icons/trustpilot.png";
-import Image from 'next/image';
+import { verified } from 'lucide-react';
 
 
 
 const reviewSources = [
   { id: 'all', label: 'All Reviews', rating: 5.0 },
   { id: 'linkedin', label: 'LinkedIn', rating: 4.5 },
-  { id: 'google', label: 'GOOGLE', rating: 5.0 },
+  { id: 'google', label: 'GOOGLE', rating: 4.8 },
   { id: 'trustpilot', label: 'TRUST PILOT', rating: 4.7 },
 ];
 
@@ -39,7 +39,7 @@ const reviewsData = {
       id: 2,
       stars: 5,
       text: (<>
-      I was initially skeptical about <strong>launching</strong> an <strong>ICO</strong>, but <a href="/"><strong>Jakaria.finance</strong></a> changed my perspective. They not only helped me <strong>raise the capital</strong> I needed but also guided me with expertise that’s hard to find anywhere else. <strong>The best part?</strong> No upfront fees—they truly care about the success of their clients. Thanks to <a href="/"><strong>Jakaria.finance</strong></a>. I now feel confident navigating the crypto world. <strong>I highly recommend their services</strong>"
+      I was initially skeptical about <strong>launching</strong> an <strong>ICO</strong>, but <a href="/"><strong>Jakaria.finance</strong></a> changed my perspective. They not only helped me <strong>raise the capital</strong> I needed but also guided me with expertise that’s hard to find anywhere else. <strong>The best part?</strong> No upfront fees—they truly care about the success of their clients. Thanks to <a href="/"><strong>Jakaria.finance</strong></a>. I now feel confident navigating the crypto world. <strong>I highly recommend their services</strong>
       </>
         ),
         name: 'Ethan P., Founder of FinTech Solutions',
@@ -52,7 +52,7 @@ const reviewsData = {
     {
       id: 3,
       stars: 5,
-      text: (<><a href="/"><strong>Jakaria.finance</strong></a>. didn’t just help me <strong>raise the funds</strong> I needed for my business, they also taught me how to <strong>leverage the crypto market</strong> to generate quick profits . Their customer service is outstanding, and their team goes the extra mile to <strong>ensure your success</strong>. I was never left in the dark—they were there for me every step of the way. I wouldn’t <strong>trust</strong> anyone else in the <strong>crypto space</strong></>
+      text: (<><a href="/"><strong>Jakaria.finance</strong></a> didn’t just help me <strong>raise the funds</strong> I needed for my business, they also taught me how to <strong>leverage the crypto market</strong> to generate quick profits . Their customer service is outstanding, and their team goes the extra mile to <strong>ensure your success</strong>. I was never left in the dark—they were there for me every step of the way. I wouldn’t <strong>trust</strong> anyone else in the <strong>crypto space</strong></>
         ),
       name: 'David H., Entrepreneur and Investor',
       location: 'New York, USA',
@@ -77,7 +77,7 @@ const reviewsData = {
       id: 1,
       stars: 5,
       text: (<>
-      <a href="/"><strong>Jakaria.finance</strong></a>helped us launch our ICO in just 7 days, and the results were beyond our expectations! We successfully raised the capital needed to scale our product globally. The team’s expertise, guidance, and continuous support made all the difference. Plus, the best part? No upfront fees —which made it easy for us to take the leap. I can confidently say their service is top-tier. Highly recommend to any entrepreneur looking to elevate their business!</>
+      <a href="/"><strong>Jakaria.finance</strong></a> helped us launch our ICO in just 7 days, and the results were beyond our expectations! We successfully raised the capital needed to scale our product globally. The team’s expertise, guidance, and continuous support made all the difference. Plus, the best part? No upfront fees —which made it easy for us to take the leap. I can confidently say their service is top-tier. Highly recommend to any entrepreneur looking to elevate their business!</>
         ),
       name: 'John M., CEO of TechVibe Innovations',
       location: 'New York, USA',
@@ -122,7 +122,7 @@ const reviewsData = {
       verified: true,
       date: 'JUNE 14, 2023',
       source: 'GOOGLE',
-      avatar: '/reviewers/google 1.png',
+      avatar: '/reviewers/google  1.png',
     },
     {
       id: 8,
@@ -290,7 +290,7 @@ const reviews =
   };
 
   return (
-    <div className="max-w-3xl mx-auto my-12 p-6 bg-gray-50 rounded-lg shadow-md">
+    <div className="max-w-6xl mx-auto my-12 py-6 px-4 sm:px-6 lg:px-8 bg-gray-50 rounded-lg shadow-md">
       <h2 className="text-xl font-bold mb-6">What our customers say</h2>
 
       {/* Tabs */}
@@ -341,22 +341,22 @@ const reviews =
           <Stars count={reviews[currentReviewIndex].stars} />
 
           {/* Text */}
-          <p className="mt-3 text-gray-800">{reviews[currentReviewIndex].text}</p>
+          <p className="mt-3 pb-10 text-gray-800">{reviews[currentReviewIndex].text}</p>
 
           {/* Navigation Arrows */}
           <button
             onClick={prev}
             aria-label="Previous review"
-            className="absolute top-1/2 left-2 -translate-y-1/2  rounded-full p-2 hover:bg-gray-200"
+            className="absolute flex items-center justify-center w-8 h-8 top-1/2 left-2 -translate-y-1/2  rounded-full p-2 bg-gray-200 hover:bg-gray-300"
           >
-            &#8592;
+            &lt;
           </button>
           <button
             onClick={next}
             aria-label="Next review"
-            className="absolute top-1/2 right-2 -translate-y-1/2 rounded-full p-2 hover:bg-gray-200"
+            className="absolute flex items-center justify-center w-8 h-8 top-1/2 right-2 -translate-y-1/2 rounded-full p-2 bg-gray-200 hover:bg-gray-300"
           >
-            &#8594;
+            &gt;
           </button>
 
           {/* Reviewer Info */}
@@ -372,7 +372,7 @@ const reviews =
                 <span className="text-sm text-gray-600">{reviews[currentReviewIndex].location}</span>
                 {reviews[currentReviewIndex].verified && (
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns={verified}
                     className="inline-block w-4 h-4 text-blue-500"
                     fill="none"
                     viewBox="0 0 24 24"
