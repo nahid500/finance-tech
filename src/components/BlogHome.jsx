@@ -8,7 +8,7 @@ const BlogHome = async () => {
   const data = await res.json();
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 py-8">
+    <div id="blog" className="w-full max-w-7xl mx-auto px-4 py-8">
       <div className="text-center mb-10">
         <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
           Latest Blogs
