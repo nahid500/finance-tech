@@ -11,14 +11,11 @@ import Services from "@/components/Services";
 import Speech from "@/components/Speech";
 import WhyUs from "@/components/WhyUs";
 import ChatWidget from "@/components/widgets/ChatWidget";
-import Crypto from "@/components/widgets/Crypto";
+import HeatMap from "@/components/widgets/HeatMap";
+import NewsWidget from "@/components/widgets/NewsWidget";
 import Trading from "@/components/widgets/Trading";
 import TradingViewWidget from "@/components/widgets/TradingViewWidget";
-import TradingWidget from "@/components/widgets/TradingWidget";
 import LiveMarketData from "../../components/LiveMarketData";
-import { Newsletter } from "@/components/Newsletter";
-import NewsWidget from "@/components/widgets/NewsWidget";
-import HeatMap from "@/components/widgets/HeatMap";
 
 export default function Home() {
   return (
@@ -45,7 +42,7 @@ export default function Home() {
 
       <Speech />
 
-      <LiveMarketData/>
+      <LiveMarketData />
 
       {/* <Crypto /> */}
 
@@ -61,10 +58,9 @@ export default function Home() {
 
       <BlogHome />
 
-      <NewsWidget/>
+      <NewsWidget />
 
       <Footer />
-      
     </div>
   );
 }

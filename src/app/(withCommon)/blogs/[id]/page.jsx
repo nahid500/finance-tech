@@ -32,8 +32,17 @@ const SingleBlogPage = () => {
 
   return (
     <div className="w-full max-w-6xl mx-auto my-10 px-5 md:px-0 pt-10">
+      <div>
+        <Link href={"/blogs"}>
+          <button className="text-blue-500 hover:text-blue-700 flex items-center border-b border-blue-500 hover:border-blue-700 transition-all px-2">
+            <ArrowLeft size={18} />
+            Back
+          </button>
+        </Link>
+      </div>
+
       {/* Topic and date top */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 mt-4">
         <span className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-sm font-medium px-4 py-1 rounded-full">
           {blog?.topic}
         </span>
