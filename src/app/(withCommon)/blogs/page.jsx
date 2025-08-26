@@ -5,7 +5,8 @@ import Loading from "@/components/ui/Loading";
 import PaginationUI from "@/components/ui/PaginationUI";
 import { useGetAllBlogQuery } from "@/redux/api/blogApi";
 import { paginateFormateData } from "@/utils/pagination";
-import { Search } from "lucide-react";
+import { ArrowLeft, Search } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Blogs() {
@@ -25,8 +26,17 @@ export default function Blogs() {
   const blogs = data?.data?.blogs;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 ">
-      <div className="mt-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 mt-20">
+      <div>
+        <Link href={"/#blog"}>
+          <button className="text-blue-500 hover:text-blue-700 flex items-center border-b border-blue-500 hover:border-blue-700 transition-all px-2">
+            <ArrowLeft size={18} />
+            Back
+          </button>
+        </Link>
+      </div>
+
+      <div>
         <h1 className="text-center text-2xl font-bold ">Welcome to My Blogs</h1>
         <p className="text-center text-gray-600 mb-8">
           Explore my latest articles and insights on various topics. Click on
