@@ -3,7 +3,7 @@ import React from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
-import footerImg from "@/assets/images/footerImg.jpg";
+import footerImg from "@/assets/images/footer.jpg";
 
 import whatsapp from "@/assets/icons/whatsapp.png";
 import messenger from "@/assets/icons/messenger.png";
